@@ -50,6 +50,7 @@
     <Compile Include="Orders\OrderStatus.cs" />
     <Compile Include="Common\Priority.cs" />
     <Compile Include="Common\Review.cs" />
+    <Compile Include="Payments\PaymentMethod.cs" />
     <Compile Include="Users\Buyer.cs" />
     <Compile Include="Advertisements\Category.cs" />
     <Compile Include="Common\City.cs" />
