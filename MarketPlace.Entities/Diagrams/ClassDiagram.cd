@@ -3,7 +3,7 @@
   <Class Name="MarketPlace.Entities.Advertisements.Advertisement">
     <Position X="18.5" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEIAAAAAQAiAEAAAAAAAAAAAAACABAAAgAAAAAACAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAEAIAAAAAAAAAAAAABAAAAAAAAAACAA=</HashCode>
       <FileName>Advertisements\Advertisement.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -11,7 +11,6 @@
       <Property Name="Seller" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
-      <Property Name="Orders" />
       <Property Name="Images" />
     </ShowAsCollectionAssociation>
   </Class>
@@ -68,7 +67,7 @@
   <Class Name="MarketPlace.Entities.Orders.Order">
     <Position X="21.75" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <HashCode>AAAAAAAEAAAAAAAMAAAQAAAAAAACQAAAAACAAAAAQAA=</HashCode>
       <FileName>Orders\Order.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -89,7 +88,7 @@
   <Class Name="MarketPlace.Entities.Users.Seller">
     <Position X="18.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Users\Seller.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -98,23 +97,14 @@
   </Class>
   <Class Name="MarketPlace.Entities.Users.User">
     <Position X="19.75" Y="2.5" Width="1.5" />
-    <AssociationLine Name="CoverImage" Type="MarketPlace.Entities.Common.Image" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="20.25" Y="4.565" />
-        <Point X="20.25" Y="5.125" />
-        <Point X="18.25" Y="5.125" />
-        <Point X="18.25" Y="5.5" />
-        <Point X="12.25" Y="5.5" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAEAAACAAAAACAAAAAAAAAAAAAAADAQAAIAAAAAg=</HashCode>
+      <HashCode>AAABAEAAACAAAAAKAAAAAAAAAAAAAAADAQAAIAAAAAg=</HashCode>
       <FileName>Users\User.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Address" />
-      <Property Name="CoverImage" />
       <Property Name="ProfileImage" />
+      <Property Name="CoverImage" />
     </ShowAsAssociation>
   </Class>
   <Class Name="MarketPlace.Entities.Common.Image">
