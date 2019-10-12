@@ -1,0 +1,7 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.navbar{
+    background: linear-gradient(#CDDC39,gray);
+}

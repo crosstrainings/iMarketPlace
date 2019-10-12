@@ -1,0 +1,202 @@
+﻿<html>
+<head>
+    <title>Bootstrap UI Components</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
+                            <span class="glyphicon glyphicon-menu-hamburger"></span>
+                        </button>
+                        <div class="navbar-brand">
+                            <span class="text-info" style="font-weight: bold">
+                                i
+                                <span class="glyphicon glyphicon-tasks" style="transform: rotate(90deg);"></span>
+                                arketplace
+                            </span>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="mynavbar">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="#">
+                                    Featured <span class="label label-danger">new</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">New</a>
+                            </li>
+                            <li>
+                                <a href="#">Trending</a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+                            </li>
+                            <li>
+                                <a href="#">Register</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-globe"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="theme-option" id="default"><a href="#">default</a></li>
+                                    <li class="theme-option" id="flat"><a href="#">flat</a></li>
+                                    <li class="theme-option" id="gradient"><a href="#">gradient</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.nav-area -->
+
+        <div class="row">
+            <div class="col-lg-2 hidden-md">
+                <ul class="list-group" id="app-main-category-list">
+                    <li class="list-group-item">
+                        <a href="#" id="1">Vehicles</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" id="2">Electronics</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" id="3">Sports</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" id="4">Fitness</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" id="5">Clothes</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-8">
+                <div class="thumbnail">
+                    <div class="carousel slide" data-ride="carousel" data-interval="10000" id="mycarousel">
+                        <ol class="carousel-indicators">
+                            <li class="active" data-target="#mycarousel" data-slide-to="0"></li>
+                            <li data-target="#mycarousel" data-slide-to="1"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="./content/images/banners/1.jpg" style="height: 298px;" class="img-responsive">
+                            </div>
+                            <div class="item">
+                                <img src="./content/images/banners/3.jpg" style="height: 298px;" class="img-responsive">
+                            </div>
+                        </div>
+                        <a href="#mycarousel" class="carousel-control left" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a href="#mycarousel" class="carousel-control right" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 ">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="padding: 5px">
+                        <div class="panel-title">
+                            <span style="font-size: 12px;font-weight: bold">Latest Updates</span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-lg-12">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae ex magnam quis
+                            </p>
+                        </div>
+                    </div>
+                    <div class="panel-footer" style="padding: 2px">
+                        <span style="font-size: 10px; cursor: pointer;">see more</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.categories - banner - area -->
+
+        <div class="row">
+            <div class="col-lg-2 hidden-md">
+                @if (ViewBag.IsLoggedIn == true)
+                {
+                @RenderPage("../shared/_RecentlyViewed.cshtml")
+                }
+            </div>
+            <div class="col-lg-8">
+                <div class="row" id="app-main-products">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2">
+
+        </div>
+
+        <!-- /.recent viewed - products -->
+
+        <div class="row">
+            <div class="jumbotron">
+
+            </div>
+        </div>
+        <!-- /.footer -->
+    </div><!-- /.container-fluid -->
+    <div class="modal fade" id="login-modal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <form action="/Home/Login" method="post">
+
+                    @*
+                        HTTP REQUEST:
+                        VERB: GET | POST | PUT | DELETE
+                    *@
+
+                    <div class="modal-header bg-primary">
+                        <div class="modal-title text-center">
+                            Login
+                            <span class="close" data-dismiss="modal">&times;</span>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" name="userName" placeholder="Enter User Name" class="form-control">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="password" name="password" placeholder="Enter Password" class="form-control">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success" id="app-login-btn">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="theme-area">
+
+    </div>
+  
+    @section IndexScript{
+            <script src="~/scripts/app-theme.js"></script>        
+        }
+</body>
+</html>

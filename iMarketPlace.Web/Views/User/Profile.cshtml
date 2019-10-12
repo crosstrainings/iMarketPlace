@@ -1,0 +1,140 @@
+﻿<html>
+<head>
+    <title>Bootstrap UI Components</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
+                            <span class="glyphicon glyphicon-menu-hamburger"></span>
+                        </button>
+                        <div class="navbar-brand">
+                            <a href="/Home/Index" class="text-info" style="font-weight: bold">
+                                i
+                                <span class="glyphicon glyphicon-tasks" style="transform: rotate(90deg);"></span>
+                                arketplace
+                            </a>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="mynavbar">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="#">
+                                    <button class="btn btn-warning btn-xs" data-target="#app-create-ad-modal"
+                                            data-toggle="modal">
+                                        post an Ad
+                                    </button>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-user">
+                                    </span>
+                                    <span>
+                                        irshad ahmed
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.nav-area -->
+        <div class="row">
+            <br>
+            <br>
+            <div class="col-lg-2">
+                @RenderPage("../shared/_RecentlyViewed.cshtml")
+            </div>
+            <div class="col-lg-6">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>SR#</th>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="app-user-product-area">
+                        @if (ViewBag.Advertisement!=null)
+                        {
+                            <tr>
+                                @*<td>1</td>
+                                    <td>@ViewBag.Image</td>
+                                    <td>@ViewBag.Title</td>
+                                    <td>@ViewBag.Price</td>
+                                    <td>Edit | Delete</td>*@
+                                @*<td>1</td>
+                                        <td>@ViewData["image"]</td>
+                                        <td>@ViewData["title"]</td>
+                                        <td>@ViewData["price"]</td>
+                                        <td>Edit | Delete</td>
+                                    </tr>*@
+                                <td>1</td>
+                                <td>@ViewBag.Advertisement.Image</td>
+                                <td>@ViewBag.Advertisement.Title</td>
+                                <td>@ViewBag.Advertisement.Price</td>
+                                <td>Edit | Delete</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="app-create-ad-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="/User/Create" method="post">
+
+                    <div class="modal-header bg-primary">
+                        <div class="modal-title text-center">
+                            Post An Advertisement
+                            <span class="close" data-dismiss="modal">&times;</span>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="hidden" id="app-ad-id">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="title" class="form-control" id="app-ad-title" placeholder="Title">
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input type="number" name="price" class="form-control" id="app-ad-price" placeholder="Price">
+                                </div>
+                                <div class="col-lg-6">
+                                    <select name="category" class="form-control" id="app-ad-categories">
+                                        <option value="1">Vehicles</option>
+                                        <option selected value="2">Electronics</option>
+                                        <option value="3">Sports</option>
+                                        <option value="4">Fitness</option>
+                                        <option value="5">Clothes</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="image" class="form-control" id="app-ad-img" placeholder="Image Url">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success" id="app-create-ad-btn">Post</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
