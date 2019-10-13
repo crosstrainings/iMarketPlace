@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26228.98
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketPlace.Entities", "MarketPlace.Entities\MarketPlace.Entities.csproj", "{933F94AC-DBDD-47A3-9645-A130194134C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketPlace.Web", "iMarketPlace.Web\MarketPlace.Web.csproj", "{A3C64C00-D82A-471D-B7C2-331AA0CD2185}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketPlace.Web", "MarketPlace.Web\MarketPlace.Web.csproj", "{A3C64C00-D82A-471D-B7C2-331AA0CD2185}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
