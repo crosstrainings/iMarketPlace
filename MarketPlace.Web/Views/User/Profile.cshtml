@@ -1,4 +1,6 @@
-﻿<html>
+﻿@using iMarketPlace.Web.Models
+@model Advertisement
+<html>
 <head>
     <title>Bootstrap UI Components</title>
 </head>
@@ -56,7 +58,6 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>SR#</th>
                             <th>Image</th>
                             <th>Title</th>
                             <th>Price</th>
@@ -64,26 +65,19 @@
                         </tr>
                     </thead>
                     <tbody id="app-user-product-area">
-                        @if (ViewBag.Advertisement!=null)
+                        @if (ViewBag.Advertisements != null)
                         {
-                            <tr>
-                                @*<td>1</td>
-                                    <td>@ViewBag.Image</td>
-                                    <td>@ViewBag.Title</td>
-                                    <td>@ViewBag.Price</td>
-                                    <td>Edit | Delete</td>*@
-                                @*<td>1</td>
-                                        <td>@ViewData["image"]</td>
-                                        <td>@ViewData["title"]</td>
-                                        <td>@ViewData["price"]</td>
-                                        <td>Edit | Delete</td>
-                                    </tr>*@
-                                <td>1</td>
-                                <td>@ViewBag.Advertisement.Image</td>
-                                <td>@ViewBag.Advertisement.Title</td>
-                                <td>@ViewBag.Advertisement.Price</td>
-                                <td>Edit | Delete</td>
-                            </tr>
+                            foreach (Advertisement ad in ViewBag.Advertisements)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="@Url.Content(ad.Image)" class="img-circle" height="25" width="25" />
+                                    </td>
+                                    <td>@ad.Title</td>
+                                    <td>@ad.Price</td>
+                                    <td>Edit | Delete</td>
+                                </tr>
+                            }
                         }
                     </tbody>
                 </table>
@@ -93,7 +87,7 @@
     <div class="modal fade" id="app-create-ad-modal">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="/User/Create" method="post">
+                <form action="/Product/Create" method="post">
 
                     <div class="modal-header bg-primary">
                         <div class="modal-title text-center">
@@ -106,26 +100,57 @@
                             <input type="hidden" id="app-ad-id">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="title" class="form-control" id="app-ad-title" placeholder="Title">
+                            @*<input type="text" name="title" class="form-control" id="app-ad-title" placeholder="Title">
+                                @Html.TextBox()*@
+                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control", placeholder = "Enter Title Here" })
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <input type="number" name="price" class="form-control" id="app-ad-price" placeholder="Price">
+                                    @*<input type="number" name="price" class="form-control" id="app-ad-price" placeholder="Price">*@
+                                    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+
                                 </div>
                                 <div class="col-lg-6">
-                                    <select name="category" class="form-control" id="app-ad-categories">
-                                        <option value="1">Vehicles</option>
-                                        <option selected value="2">Electronics</option>
-                                        <option value="3">Sports</option>
-                                        <option value="4">Fitness</option>
-                                        <option value="5">Clothes</option>
-                                    </select>
+                                    @{
+                                        List<SelectListItem> categoryOptions = new List<SelectListItem>();
+                                        SelectListItem item1 = new SelectListItem();
+                                        item1.Text = "Vehicles";
+                                        item1.Value = "1";
+                                        SelectListItem item2 = new SelectListItem();
+                                        item2.Text = "Electronics";
+                                        item2.Value = "2";
+                                        item2.Selected = true;
+                                        SelectListItem item3 = new SelectListItem();
+                                        item3.Text = "Sports";
+                                        item3.Value = "3";
+                                        SelectListItem item4 = new SelectListItem();
+                                        item4.Text = "Fitness";
+                                        item4.Value = "4";
+                                        SelectListItem item5 = new SelectListItem();
+                                        item5.Text = "Clothes";
+                                        item5.Value = "5";
+                                        categoryOptions.Add(item1);
+                                        categoryOptions.Add(item2);
+                                        categoryOptions.Add(item3);
+                                        categoryOptions.Add(item4);
+                                        categoryOptions.Add(item5);
+                                    }
+
+                                    @Html.DropDownListFor(x => x.Category, categoryOptions,new { @class = "form-control" })
+                                    @*<select name="category" class="form-control" id="app-ad-categories">
+                                            <option value="1">Vehicles</option>
+                                            <option selected value="2">Electronics</option>
+                                            <option value="3">Sports</option>
+                                            <option value="4">Fitness</option>
+                                            <option value="5">Clothes</option>
+                                        </select>*@
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="image" class="form-control" id="app-ad-img" placeholder="Image Url">
+                            @*<input type="text" name="image" class="form-control" id="app-ad-img" placeholder="Image Url">*@
+                            @Html.TextBoxFor(x => x.Image, new { @class = "form-control" })
                         </div>
                     </div>
                     <div class="modal-footer">
