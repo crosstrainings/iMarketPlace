@@ -13,16 +13,5 @@ namespace iMarketPlace.Web.Controllers
             ViewBag.Advertisements = AdvertisementManager.Get();
             return View();
         }
-
-
-        public ActionResult Login(string userName, string password)
-        {
-            if (userName == "Admin" && password == "Admin")
-            {
-                IsLoggedIn = true;
-                return RedirectToAction("Profile", "User");
-            }
-            return RedirectToAction("Index");
-        }
     }
 }
