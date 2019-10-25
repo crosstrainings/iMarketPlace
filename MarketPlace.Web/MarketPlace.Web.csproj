@@ -156,7 +156,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\images\1.png" />
+    <Content Include="Content\images\banners\%284%29.jpg" />
+    <Content Include="Content\images\banners\%285%29.jpg" />
+    <Content Include="Content\images\banners\%286%29.jpg" />
+    <Content Include="Content\images\banners\%287%29.jpg" />
+    <Content Include="Content\images\banners\%288%29.jpg" />
     <Content Include="Content\images\banners\1.jpg" />
     <Content Include="Content\images\banners\3.jpg" />
     <Content Include="Content\images\products\%281%29.jpg" />
@@ -183,13 +192,14 @@
     <Content Include="Content\images\products\%287%29.jpg" />
     <Content Include="Content\images\products\%288%29.jpg" />
     <Content Include="Content\images\products\%289%29.jpg" />
+    <Content Include="Content\images\users\agent1-1.jpg" />
+    <Content Include="Content\images\users\person2.png" />
     <Content Include="Content\styles\bootstrap-theme.css" />
     <Content Include="Content\styles\bootstrap.css" />
     <Content Include="Content\styles\registration-form.css" />
     <Content Include="Content\styles\themes\flat.css" />
     <Content Include="Content\styles\themes\gradient.css" />
     <Content Include="favicon.ico" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -225,15 +235,6 @@
     <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
     <Folder Include="Views\Product\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
