@@ -1,5 +1,4 @@
-﻿using System;
-using iMarketPlace.Web.Models;
+﻿using iMarketPlace.Web.Models;
 using System.Web.Mvc;
 
 namespace iMarketPlace.Web.Controllers

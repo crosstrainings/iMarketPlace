@@ -6,6 +6,19 @@
 </head>
 <body>
     <div class="container-fluid">
+        <div class="row" style="height: 150px;background: url('../../Content/images/banners/(5).jpg')">
+            <div class="col-lg-offset-1 col-lg-3">
+                <br />
+                <div class="profile-image">
+                    <div class="img-thumbnail">
+                        <img src="../../Content/images/users/agent1-1.jpg" style="height: 100px; width: 100px" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+
+            </div>
+        </div>
         <div class="row">
             <div class="navbar navbar-default">
                 <div class="container-fluid">
@@ -54,33 +67,54 @@
             <div class="col-lg-2">
                 @RenderPage("../shared/_RecentlyViewed.cshtml")
             </div>
-            <div class="col-lg-6">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Image</th>
-                            <th>Title</th>
-                            <th>Price</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="app-user-product-area">
-                        @if (ViewBag.Advertisements != null)
+            <div class="col-lg-8">
+                <div class="row">
+                    @if (ViewBag.Advertisements != null)
+                    {
+                        foreach (Advertisement item in ViewBag.Advertisements)
                         {
-                            foreach (Advertisement ad in ViewBag.Advertisements)
-                            {
-                                <tr>
-                                    <td>
-                                        <img src="@Url.Content(ad.Image)" class="img-circle" height="25" width="25" />
-                                    </td>
-                                    <td>@ad.Title</td>
-                                    <td>@ad.Price</td>
-                                    <td>Edit | Delete</td>
-                                </tr>
-                            }
+                            <div class="col-lg-6">
+                                <div class="well well-default" style="padding: 3px;background: whitesmoke">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <div class="img-thumbnail">
+                                                <img src="@Url.Content(item.Image)" class="img-responsive" style="height: 100px;width: 100%" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <div class="row">
+                                                <div class="col-lg-9" style="padding: 0">
+                                                    <span style="font-weight: bold; font-size: 16px">@item.Title &nbsp; @item.Price/-</span>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <span style="font-size: 12px">
+                                                        <span class="glyphicon glyphicon-resize-full"></span>&nbsp;&nbsp;&nbsp;
+                                                        <span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;&nbsp;
+                                                        <span class="glyphicon glyphicon-trash"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <span style="font-size: 12px">
+                                                    Samsung helps you discover a wide range of home electronics with cutting-edge technology including smartphones,
+                                                    tablets, TVs, home appliances and more.
+                                                </span>
+                                            </div>
+                                            <br />
+                                            <div class="row">
+                                                <span style="font-size: 12px">
+                                                    <span class="label label-danger">Orders 2 <i class="glyphicon glyphicon-arrow-up"></i></span>
+                                                    <span class="label label-warning">Impressions 12 <i class="glyphicon glyphicon-arrow-up"></i></span>
+                                                    <span class="label label-success">Clicks 21 <i class="glyphicon glyphicon-arrow-down"></i></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         }
-                    </tbody>
-                </table>
+                    }
+                </div>
             </div>
         </div>
     </div>
@@ -137,7 +171,7 @@
                                         categoryOptions.Add(item5);
                                     }
 
-                                    @Html.DropDownListFor(x => x.Category, categoryOptions,new { @class = "form-control" })
+                                    @Html.DropDownListFor(x => x.Category, categoryOptions, new { @class = "form-control" })
                                     @*<select name="category" class="form-control" id="app-ad-categories">
                                             <option value="1">Vehicles</option>
                                             <option selected value="2">Electronics</option>
