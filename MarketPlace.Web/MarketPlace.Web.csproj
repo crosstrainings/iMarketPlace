@@ -196,11 +196,9 @@
     <Content Include="Content\images\users\person2.png" />
     <Content Include="Content\styles\bootstrap-theme.css" />
     <Content Include="Content\styles\bootstrap.css" />
-    <Content Include="Content\styles\footer.css" />
     <Content Include="Content\styles\registration-form.css" />
     <Content Include="Content\styles\themes\flat.css" />
     <Content Include="Content\styles\themes\gradient.css" />
-    <Content Include="Content\styles\user-profile.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
@@ -264,9 +262,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Administration\Views\Admin\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\_Footer.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

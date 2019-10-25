@@ -87,10 +87,10 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img src="/content/images/banners/1.jpg" style="height: 298px;" class="img-responsive">
+                                <img src="./content/images/banners/1.jpg" style="height: 298px;" class="img-responsive">
                             </div>
                             <div class="item">
-                                <img src="/content/images/banners/3.jpg" style="height: 298px;" class="img-responsive">
+                                <img src="./content/images/banners/3.jpg" style="height: 298px;" class="img-responsive">
                             </div>
                         </div>
                         <a href="#mycarousel" class="carousel-control left" data-slide="prev">
@@ -127,61 +127,58 @@
 
         <div class="row">
             <div class="col-lg-2 hidden-md">
-                @*@if (ViewBag.IsLoggedIn == true)
-                {*@
+                @if (ViewBag.IsLoggedIn == true)
+                {
                     @RenderPage("../shared/_RecentlyViewed.cshtml")
-              @*  }*@
+                }
             </div>
             <div class="col-lg-8">
                 <div class="row" id="app-main-products">
 
                     @if (ViewBag.Advertisements != null)
                     {
-                        for (int i = 0; i < 5; i++)
+                        foreach (Advertisement item in ViewBag.Advertisements)
                         {
-
-                            foreach (Advertisement item in ViewBag.Advertisements)
-                            {
-                                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                    <div class="well well-default" style="padding-top: 10px;padding-bottom: 5px">
-                                        <div class="row" style="height: 145px;">
-                                            <div class="thumbnail">
-                                                <img src="@Url.Content(item.Image)" class="img-responsive" style="height:130px" />
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <span style="font-weight: bold;font-size: 12px">@item.Title</span>
-                                        </div>
-                                        <div class="row">
-                                            <span class="pull-left" style="font-size: 10px;font-weight: bold;">
-                                                <img src="/content/images/1.png" class="img-circle img-thumbnail"
-                                                     style="height: 20px;width: 20px">
-                                                <span>Irshad Ahmed</span>
-                                            </span>
-                                            <span class="pull-right" style="font-size: 10px;margin-top: 2px;font-weight: bold;">
-                                                $
-                                                @item.Price
-                                            </span>
-                                        </div>
-                                        <div class="row">
-                                            <span class="pull-right">
-                                                <button class="btn btn-primary btn-xs">
-                                                    <span class="glyphicon glyphicon-shopping-cart"></span>
-                                                </button>
-                                                <button class="btn btn-success btn-xs">
-                                                    <span class="glyphicon glyphicon-earphone"></span>
-                                                </button>
-                                                <button onclick="onFavoriteButtonClick()" onmouseover="onFavoriteButtonMouseOver()"
-                                                        id="fav-btn" class="btn btn-default btn-xs">
-                                                    <span class="glyphicon glyphicon-heart-empty"></span>
-                                                </button>
-                                            </span>
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                                <div class="well well-default" style="padding-top: 10px;padding-bottom: 5px">
+                                    <div class="row" style="height: 145px;">
+                                        <div class="thumbnail">
+                                            <img src="@Url.Content(item.Image)" class="img-responsive" style="height:130px" />
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <span style="font-weight: bold;font-size: 12px">@item.Title</span>
+                                    </div>
+                                    <div class="row">
+                                        <span class="pull-left" style="font-size: 10px;font-weight: bold;">
+                                            <img src="./content/images/1.png" class="img-circle img-thumbnail"
+                                                 style="height: 20px;width: 20px">
+                                            <span>Irshad Ahmed</span>
+                                        </span>
+                                        <span class="pull-right" style="font-size: 10px;margin-top: 2px;font-weight: bold;">
+                                            $
+                                            @item.Price
+                                        </span>
+                                    </div>
+                                    <div class="row">
+                                        <span class="pull-right">
+                                            <button class="btn btn-primary btn-xs">
+                                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                            </button>
+                                            <button class="btn btn-success btn-xs">
+                                                <span class="glyphicon glyphicon-earphone"></span>
+                                            </button>
+                                            <button onclick="onFavoriteButtonClick()" onmouseover="onFavoriteButtonMouseOver()"
+                                                    id="fav-btn" class="btn btn-default btn-xs">
+                                                <span class="glyphicon glyphicon-heart-empty"></span>
+                                            </button>
+                                        </span>
+                                    </div>
                                 </div>
+                            </div>
 
-                            }
                         }
+
                     }
 
 
@@ -191,6 +188,15 @@
         <div class="col-lg-2">
 
         </div>
+
+        <!-- /.recent viewed - products -->
+
+        <div class="row">
+            <div class="jumbotron">
+
+            </div>
+        </div>
+        <!-- /.footer -->
     </div><!-- /.container-fluid -->
     @RenderPage("../Shared/_Login.cshtml")
     @RenderPage("../Shared/_Register.cshtml")
