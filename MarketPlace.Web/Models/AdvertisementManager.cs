@@ -1,48 +1,33 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace iMarketPlace.Web.Models
 {
     public static class AdvertisementManager
     {
-        static AdvertisementManager()
-        {
-        }
-
-
         public static bool Add(Advertisement advertisement)
         {
-            SqlConnection connection = new SqlConnection("Data Source=CRLHL-AHMEDIRS2;Initial Catalog=iMarketPlaceDataBase;Integrated Security=True");
-            SqlCommand command = new SqlCommand($@"INSERT INTO Advertisements(Title,Price,Category,[Image])
-                                                        VALUES('{advertisement.Title}', '{advertisement.Price}', 
-                                                        {advertisement.Category}, '{advertisement.Image}')",connection);
-            connection.Open();
-            command.ExecuteNonQuery();
+            AdvertisementContext db = new AdvertisementContext();
+            db.Advertisements.Add(advertisement);
+            db.SaveChanges();
             return true;
         }
 
         public static List<Advertisement> Get()
         {
-            List<Advertisement> advertisements= new List<Advertisement>();
-            SqlConnection connection = new SqlConnection("Data Source=CRLHL-AHMEDIRS2;Initial Catalog=iMarketPlaceDataBase;Integrated Security=True");
-            SqlCommand command = new SqlCommand($@"SELECT * FROM Advertisements", connection);
-            connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                Advertisement ad = new Advertisement();
+            AdvertisementContext db = new AdvertisementContext();
+            return db.Advertisements.ToList();
 
-                ad.Title = reader.GetString(0);
-                ad.Price = reader.GetString(1);
-                ad.Category = reader.GetInt32(2);
-                ad.Image = reader.GetString(3);
-                advertisements.Add(ad);
-            }
-
-            return advertisements;
-
-
-        }
+            //SELECT 
+            //[Extent1].[RegistrationNumber] AS[RegistrationNumber], 
+            //    [Extent1].[Title] AS[Title], 
+            //    [Extent1].[Price] AS[Price], 
+            //    [Extent1].[Category] AS[Category], 
+            //    [Extent1].[Image]
+            //AS[Image]
+            //FROM[dbo].[Advertisements] AS[Extent1]
+    }
     }
 }
