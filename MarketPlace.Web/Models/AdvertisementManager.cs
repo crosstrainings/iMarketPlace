@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.Entity;
 using System.Linq;
+using EntityState = System.Data.Entity.EntityState;
 
 namespace iMarketPlace.Web.Models
 {
@@ -11,6 +13,7 @@ namespace iMarketPlace.Web.Models
         {
             AdvertisementContext db = new AdvertisementContext();
             db.Advertisements.Add(advertisement);
+            db.Entry(advertisement.Category).State= EntityState.Unchanged;
             db.SaveChanges();
             return true;
         }
@@ -18,7 +21,9 @@ namespace iMarketPlace.Web.Models
         public static List<Advertisement> Get()
         {
             AdvertisementContext db = new AdvertisementContext();
-            return db.Advertisements.ToList();
+            return db.Advertisements
+                .Include(x=>x.Category)
+                .ToList();
 
             //SELECT 
             //[Extent1].[RegistrationNumber] AS[RegistrationNumber], 

@@ -42,9 +42,13 @@ namespace iMarketPlace.Web.Controllers
 
 
 
-
-
-
+    /*DB Migrations
+     *
+     *enable-migrations - one time
+     *add-migration NAME_OF_MIGRATION
+     *update-database
+     *
+     */
 
 
     public class UserController : Controller

@@ -9,19 +9,24 @@
 // - Data Annotation 
 // - Fluent API 
 
+using System.ComponentModel.DataAnnotations;
+
 namespace iMarketPlace.Web.Models
 {
     public class Advertisement
     {
         //Convention
-        //public int Id { get; set; }
+        public int Id { get; set; }
 
         //Data Annotations
-        //[Key]
-        public int RegistrationNumber { get; set; }
+        ////[Key]
+        //public int RegistrationNumber { get; set; }
+
+        //[Required]
+        //[MaxLength(100)]
         public string Title { get; set; }
         public string Price { get; set; }
-        public int Category { get; set; }
+        public virtual Category Category { get; set; }
         public string Image { get; set; }
     }
 }
