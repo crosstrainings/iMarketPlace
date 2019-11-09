@@ -1,6 +1,7 @@
 ﻿using MarketPlace.Entities.Advertisements;
 using MarketPlace.Entities.Common;
 using MarketPlace.Entities.Users;
+using MarketPlace.Common.Enums;
 using System;
 
 namespace MarketPlace.Entities.Orders
@@ -8,6 +9,8 @@ namespace MarketPlace.Entities.Orders
 
     public class Order
     {
+        public int Id { get; set; }
+
         public string OrderCode { get; set; }
         public Advertisement Advertisement { get; set; }
         public Buyer Buyer { get; set; }

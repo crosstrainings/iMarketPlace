@@ -1,4 +1,4 @@
-﻿namespace MarketPlace.Entities.Common
+﻿namespace MarketPlace.Common.Enums
 {
     public enum Priority
     {

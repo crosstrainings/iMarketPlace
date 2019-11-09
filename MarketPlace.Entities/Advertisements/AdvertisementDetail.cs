@@ -9,6 +9,7 @@ namespace MarketPlace.Entities.Advertisements
 {
     public class AdvertisementDetail
     {
+        public int Id { get; set; }
         public string Description { get; set; }
         public double Discount { get; set; }
         public DateTime CreatedOn { get; set; }
@@ -16,6 +17,6 @@ namespace MarketPlace.Entities.Advertisements
         public TimeSpan Duration { get; set; }
         public List<Order> Orders { get; set; }
         public int Rank { get; set; }
-        public Advertisement Advertisement { get; set; }
+       // public Advertisement Advertisement { get; set; }
     }
 }
