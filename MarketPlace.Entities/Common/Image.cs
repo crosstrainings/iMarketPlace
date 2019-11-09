@@ -8,6 +8,8 @@ namespace MarketPlace.Entities.Common
 {
     public class Image
     {
+        public int Id { get; set; }
+
         public string Url { get; set; }
         public float Height { get; set; }
         public float Width { get; set; }

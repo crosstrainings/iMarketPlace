@@ -4,17 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{933F94AC-DBDD-47A3-9645-A130194134C3}</ProjectGuid>
+    <ProjectGuid>{6CFB94CA-E02A-48D1-ADCE-EB1DADE46763}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MarketPlace.Entities</RootNamespace>
-    <AssemblyName>MarketPlace.Entities</AssemblyName>
+    <RootNamespace>MarketPlace.Repositories</RootNamespace>
+    <AssemblyName>MarketPlace.Repositories</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,10 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+    <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+    <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -51,34 +51,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Advertisements\AdvertisementDetail.cs" />
-    <Compile Include="Common\Address.cs" />
-    <Compile Include="Advertisements\Advertisement.cs" />
-    <Compile Include="Common\Badge.cs" />
-    <Compile Include="Common\Image.cs" />
-    <Compile Include="Orders\Order.cs" />
-    <Compile Include="Orders\OrderStatus.cs" />
-    <Compile Include="Common\Review.cs" />
-    <Compile Include="Payments\PaymentMethod.cs" />
-    <Compile Include="Users\Buyer.cs" />
-    <Compile Include="Advertisements\Category.cs" />
-    <Compile Include="Common\City.cs" />
-    <Compile Include="Common\Country.cs" />
+    <Compile Include="AdvertisementRepository.cs" />
+    <Compile Include="MarketPlaceContext.cs" />
+    <Compile Include="Migrations\201911091053538_init.cs" />
+    <Compile Include="Migrations\201911091053538_init.Designer.cs">
+      <DependentUpon>201911091053538_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Users\Seller.cs" />
-    <Compile Include="Advertisements\SubCategory.cs" />
-    <Compile Include="Users\User.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MarketPlace.Common\MarketPlace.Common.csproj">
-      <Project>{e4787504-4e53-49d6-a44c-8df4171ead48}</Project>
-      <Name>MarketPlace.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Diagrams\ClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MarketPlace.Entities\MarketPlace.Entities.csproj">
+      <Project>{933f94ac-dbdd-47a3-9645-a130194134c3}</Project>
+      <Name>MarketPlace.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201911091053538_init.resx">
+      <DependentUpon>201911091053538_init.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.0.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.0.0\build\EntityFramework.targets')" />
 </Project>

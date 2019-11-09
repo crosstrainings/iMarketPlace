@@ -1,5 +1,4 @@
-﻿using iMarketPlace.Web.Models;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace iMarketPlace.Web.Controllers
 {
@@ -10,7 +9,7 @@ namespace iMarketPlace.Web.Controllers
         public ActionResult Index()
         {
             ViewBag.IsLoggedIn = IsLoggedIn;
-            ViewBag.Advertisements = AdvertisementManager.Get();
+          //  ViewBag.Advertisements = AdvertisementManager.Get();
             return View();
         }
     }

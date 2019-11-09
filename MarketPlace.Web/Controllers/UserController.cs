@@ -1,5 +1,4 @@
-﻿using iMarketPlace.Web.Models;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace iMarketPlace.Web.Controllers
 {
@@ -60,13 +59,13 @@ namespace iMarketPlace.Web.Controllers
         // GET: User
         public ActionResult Profile()
         {
-            ViewBag.Advertisements = AdvertisementManager.Get();
+            // ViewBag.Advertisements = AdvertisementManager.Get();
             return View();
         }
 
-        public ActionResult Register(Person person)
-        {
-            return RedirectToAction("Profile");
-        }
+        //public ActionResult Register(Person person)
+        //{
+        //    return RedirectToAction("Profile");
+        //}
     }
 }
