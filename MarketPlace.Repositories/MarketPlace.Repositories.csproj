@@ -53,9 +53,17 @@
   <ItemGroup>
     <Compile Include="AdvertisementRepository.cs" />
     <Compile Include="MarketPlaceContext.cs" />
-    <Compile Include="Migrations\201911091053538_init.cs" />
-    <Compile Include="Migrations\201911091053538_init.Designer.cs">
-      <DependentUpon>201911091053538_init.cs</DependentUpon>
+    <Compile Include="Migrations\201911160918274_init.cs" />
+    <Compile Include="Migrations\201911160918274_init.Designer.cs">
+      <DependentUpon>201911160918274_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911161019294_navigation-properties-updated.cs" />
+    <Compile Include="Migrations\201911161019294_navigation-properties-updated.Designer.cs">
+      <DependentUpon>201911161019294_navigation-properties-updated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911161021288_updated.cs" />
+    <Compile Include="Migrations\201911161021288_updated.Designer.cs">
+      <DependentUpon>201911161021288_updated.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,8 +79,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911091053538_init.resx">
-      <DependentUpon>201911091053538_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911160918274_init.resx">
+      <DependentUpon>201911160918274_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911161019294_navigation-properties-updated.resx">
+      <DependentUpon>201911161019294_navigation-properties-updated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911161021288_updated.resx">
+      <DependentUpon>201911161021288_updated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

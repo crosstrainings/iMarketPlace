@@ -8,6 +8,7 @@ namespace MarketPlace.Entities.Advertisements
 
         public string Name { get; set; }
         public DateTime CreatedOn { get; set; }
-        public SubCategory SubCategory { get; set; }
+        public int SubCategoryId { get; set; }
+        public virtual SubCategory SubCategory { get; set; }
     }
 }

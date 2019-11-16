@@ -12,10 +12,16 @@ namespace MarketPlace.Entities.Advertisements
 
         public string Title { get; set; }
         public double Price { get; set; }
-        public List<Image> Images { get; set; }
-        public Badge Badge { get; set; }
-        public Category Category { get; set; }
-        public Seller Seller { get; set; }
+        public virtual List<Image> Images { get; set; }
+
+        public int BadgeId { get; set; }
+        public virtual Badge Badge { get; set; }
+
+        public int CategoryId { get; set; }
+        public virtual Category Category { get; set; }
+
+        public int SellerId { get; set; }
+        public virtual Seller Seller { get; set; }
        // public AdvertisementDetail Detail { get; set; }
     }
 }

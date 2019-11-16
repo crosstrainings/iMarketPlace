@@ -11,10 +11,10 @@ namespace MarketPlace.Entities.Users
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public Address Address { get; set; }
-        public Image ProfileImage { get; set; }
-        public Image CoverImage { get; set; }
-        public int Rank { get; set; }
-        public Badge Badge { get; set; }
+        public virtual Address Address { get; set; }
+        public virtual Image ProfileImage { get; set; }
+        public virtual Image CoverImage { get; set; }
+        public  int Rank { get; set; }
+        public virtual Badge Badge { get; set; }
     }
 }

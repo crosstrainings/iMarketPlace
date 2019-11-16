@@ -1,4 +1,4 @@
-﻿@using iMarketPlace.Web.Models
+﻿@using MarketPlace.Entities.Advertisements;
 <html>
 <head>
     <title>Bootstrap UI Components</title>
@@ -128,9 +128,9 @@
         <div class="row">
             <div class="col-lg-2 hidden-md">
                 @*@if (ViewBag.IsLoggedIn == true)
-                {*@
-                    @RenderPage("../shared/_RecentlyViewed.cshtml")
-              @*  }*@
+                    {*@
+                @RenderPage("../shared/_RecentlyViewed.cshtml")
+                @*  }*@
             </div>
             <div class="col-lg-8">
                 <div class="row" id="app-main-products">
@@ -146,7 +146,7 @@
                                     <div class="well well-default" style="padding-top: 10px;padding-bottom: 5px">
                                         <div class="row" style="height: 145px;">
                                             <div class="thumbnail">
-                                                <img src="@Url.Content(item.Image)" class="img-responsive" style="height:130px" />
+                                                <img src="@Url.Content(item.Images[0].Url)" class="img-responsive" style="height:130px" />
                                             </div>
                                         </div>
                                         <div class="row">

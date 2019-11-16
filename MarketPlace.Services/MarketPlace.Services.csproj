@@ -42,8 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdvertisementManager.cs" />
+    <Compile Include="AdvertisementService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MarketPlace.Entities\MarketPlace.Entities.csproj">
+      <Project>{933f94ac-dbdd-47a3-9645-a130194134c3}</Project>
+      <Name>MarketPlace.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarketPlace.Repositories\MarketPlace.Repositories.csproj">
+      <Project>{6CFB94CA-E02A-48D1-ADCE-EB1DADE46763}</Project>
+      <Name>MarketPlace.Repositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

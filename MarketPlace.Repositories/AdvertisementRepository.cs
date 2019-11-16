@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using MarketPlace.Entities.Advertisements;
 
@@ -10,6 +12,18 @@ namespace MarketPlace.Repositories
         public AdvertisementRepository()
         {
             context = new MarketPlaceContext();
+        }
+
+        private void Save()
+        {
+            context.SaveChanges();
+        }
+
+        public void Add(Advertisement advertisement)
+        {
+            context.Advertisements.Add(advertisement);
+            context.Entry(advertisement.Category).State = EntityState.Unchanged;
+            Save();
         }
 
         public IList<Advertisement> Get()
