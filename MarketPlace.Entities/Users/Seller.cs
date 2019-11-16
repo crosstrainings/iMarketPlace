@@ -7,7 +7,7 @@ namespace MarketPlace.Entities.Users
 
     public class Seller:User
     {
-        public List<Advertisement> Advertisements { get; set; }
-        public List<Review> Reviews { get; set; }
+        public virtual List<Advertisement> Advertisements { get; set; }
+        public virtual List<Review> Reviews { get; set; }
     }
 }

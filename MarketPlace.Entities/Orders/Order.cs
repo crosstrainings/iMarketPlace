@@ -13,7 +13,7 @@ namespace MarketPlace.Entities.Orders
 
         public string OrderCode { get; set; }
         public Advertisement Advertisement { get; set; }
-        public Buyer Buyer { get; set; }
+        public  Buyer Buyer { get; set; }
         public DateTime CreatedOn { get; set; }
         public OrderStatus Status { get; set; }
         public Priority Priority { get; set; }

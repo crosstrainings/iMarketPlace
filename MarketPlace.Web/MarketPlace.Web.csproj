@@ -151,6 +151,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -275,6 +276,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\iMarketPlace.bak" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MarketPlace.Entities\MarketPlace.Entities.csproj">
+      <Project>{933f94ac-dbdd-47a3-9645-a130194134c3}</Project>
+      <Name>MarketPlace.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarketPlace.Services\MarketPlace.Services.csproj">
+      <Project>{93ecc9d3-7df7-4e54-b89d-7677b212c63b}</Project>
+      <Name>MarketPlace.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
