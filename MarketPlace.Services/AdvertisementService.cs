@@ -17,13 +17,6 @@ namespace iMarketPlace.Services
         {
             try
             {
-                advertisement.Badge = new MarketPlace.Entities.Common.Badge()
-                {
-                    Code = "New",
-                    Description = string.Empty,
-                    Icon = null,
-                    Title = "New"
-                };
                 _advertisementRepository.Add(advertisement);
                 return true;
             }

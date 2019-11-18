@@ -7,10 +7,12 @@ namespace MarketPlace.Repositories.Migrations
     {
         public override void Up()
         {
+            AddColumn("dbo.Sellers", "CanAffliated", c => c.Boolean(nullable: false));
         }
         
         public override void Down()
         {
+            DropColumn("dbo.Sellers", "CanAffliated");
         }
     }
 }

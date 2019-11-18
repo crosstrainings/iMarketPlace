@@ -8,7 +8,8 @@ namespace MarketPlace.Entities.Common
 
         public string Name { get; set; }
         public int Code { get; set; }
-        public Country Country { get; set; }
-        public List<Address> Addresses { get; set; }
+        public int? CountryId { get; set; }
+        public virtual Country Country { get; set; }
+        public virtual List<Address> Addresses { get; set; }
     }
 }

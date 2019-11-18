@@ -286,6 +286,10 @@
       <Project>{93ecc9d3-7df7-4e54-b89d-7677b212c63b}</Project>
       <Name>MarketPlace.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MarketPlace.ViewModels\MarketPlace.ViewModels.csproj">
+      <Project>{82734F9A-A890-4FEE-84A7-DAEEF679FBDC}</Project>
+      <Name>MarketPlace.ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
