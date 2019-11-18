@@ -51,19 +51,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201911171426325_updated-city.cs" />
+    <Compile Include="Migrations\201911171426325_updated-city.Designer.cs">
+      <DependentUpon>201911171426325_updated-city.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SellerRepository.cs" />
+    <Compile Include="BuyerRepository.cs" />
     <Compile Include="AdvertisementRepository.cs" />
     <Compile Include="MarketPlaceContext.cs" />
-    <Compile Include="Migrations\201911160918274_init.cs" />
-    <Compile Include="Migrations\201911160918274_init.Designer.cs">
-      <DependentUpon>201911160918274_init.cs</DependentUpon>
+    <Compile Include="Migrations\201911171343103_init.cs" />
+    <Compile Include="Migrations\201911171343103_init.Designer.cs">
+      <DependentUpon>201911171343103_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911161019294_navigation-properties-updated.cs" />
-    <Compile Include="Migrations\201911161019294_navigation-properties-updated.Designer.cs">
-      <DependentUpon>201911161019294_navigation-properties-updated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911161021288_updated.cs" />
-    <Compile Include="Migrations\201911161021288_updated.Designer.cs">
-      <DependentUpon>201911161021288_updated.cs</DependentUpon>
+    <Compile Include="Migrations\201911171348168_updated.cs" />
+    <Compile Include="Migrations\201911171348168_updated.Designer.cs">
+      <DependentUpon>201911171348168_updated.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,14 +81,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911160918274_init.resx">
-      <DependentUpon>201911160918274_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911171343103_init.resx">
+      <DependentUpon>201911171343103_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911161019294_navigation-properties-updated.resx">
-      <DependentUpon>201911161019294_navigation-properties-updated.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911171348168_updated.resx">
+      <DependentUpon>201911171348168_updated.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911161021288_updated.resx">
-      <DependentUpon>201911161021288_updated.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911171426325_updated-city.resx">
+      <DependentUpon>201911171426325_updated-city.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

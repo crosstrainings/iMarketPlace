@@ -7,13 +7,13 @@ namespace MarketPlace.Repositories.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class navigationpropertiesupdated : IMigrationMetadata
+    public sealed partial class updatedcity : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(navigationpropertiesupdated));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updatedcity));
         
         string IMigrationMetadata.Id
         {
-            get { return "201911161019294_navigation-properties-updated"; }
+            get { return "201911171426325_updated-city"; }
         }
         
         string IMigrationMetadata.Source

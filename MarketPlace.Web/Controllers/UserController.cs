@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using MarketPlace.ViewModels;
+using System.Web.Mvc;
 
 namespace iMarketPlace.Web.Controllers
 {
@@ -15,9 +16,14 @@ namespace iMarketPlace.Web.Controllers
             return View();
         }
 
-        //public ActionResult Register(Person person)
-        //{
-        //    return RedirectToAction("Profile");
-        //}
+        public ActionResult Register(Person person)
+        {
+            if (person.IsSeller)
+                _sellerService.Add(person);
+            else
+                _buyerService.Add(person);
+
+            return RedirectToAction("Profile");
+        }
     }
 }

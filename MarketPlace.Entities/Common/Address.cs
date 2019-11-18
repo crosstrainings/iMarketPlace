@@ -6,7 +6,8 @@
 
         public string StreetAddress { get; set; }
         public string HouseNumber { get; set; }
-        public City City { get; set; }
+        public int? CityId { get; set; }
+        public virtual City City { get; set; }
 
     }
 }

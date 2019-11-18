@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketPlace.Services", "Mar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketPlace.Common", "MarketPlace.Common\MarketPlace.Common.csproj", "{E4787504-4E53-49D6-A44C-8DF4171EAD48}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketPlace.ViewModels", "MarketPlace.ViewModels\MarketPlace.ViewModels.csproj", "{82734F9A-A890-4FEE-84A7-DAEEF679FBDC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{E4787504-4E53-49D6-A44C-8DF4171EAD48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4787504-4E53-49D6-A44C-8DF4171EAD48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4787504-4E53-49D6-A44C-8DF4171EAD48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82734F9A-A890-4FEE-84A7-DAEEF679FBDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82734F9A-A890-4FEE-84A7-DAEEF679FBDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82734F9A-A890-4FEE-84A7-DAEEF679FBDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82734F9A-A890-4FEE-84A7-DAEEF679FBDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

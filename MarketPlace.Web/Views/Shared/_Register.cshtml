@@ -1,4 +1,4 @@
-﻿@*@using iMarketPlace.Web.Models
+﻿@using MarketPlace.ViewModels
 @model Person
 
 <div class="modal fade" id="register-modal">
@@ -15,21 +15,18 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            @Html.LabelFor(x => x.FirstName, new { @class = "registration-form-label" })
-                            @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+                             @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" ,placeholder="First Name" })
                             @Html.ValidationMessageFor(x => x.FirstName, null, new { @class = "text-danger" })
                         </div>
                         <div class="col-lg-6">
-                            @Html.LabelFor(x => x.LastName, new { @class = "registration-form-label" })
-                            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+                             @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", placeholder="Last Name" })
                             @Html.ValidationMessageFor(x => x.LastName, null, new { @class = "text-danger" })
                         </div>
                     </div>
                     <br />
                     <div class="row">
                         <div class="col-lg-12">
-                            @Html.LabelFor(x => x.Email, new { @class = "registration-form-label" })
-                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", type = "email" })
+                             @Html.TextBoxFor(x => x.Email, new { @class = "form-control", type = "email",placeholder="Email" })
                             @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })
 
                         </div>
@@ -37,8 +34,7 @@
                     <br />
                     <div class="row">
                         <div class="col-lg-12">
-                            @Html.LabelFor(x => x.Password, new { @class = "registration-form-label" })
-                            @Html.TextBoxFor(x => x.Password, new { @class = "form-control", type = "password" })
+                             @Html.TextBoxFor(x => x.Password, new { @class = "form-control", type = "password",placeholder="Password" })
                             @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
 
                         </div>
@@ -46,8 +42,7 @@
                     <br />
                     <div class="row">
                         <div class="col-lg-12">
-                            @Html.LabelFor(x => x.ConfirmPassword, new { @class = "registration-form-label" })
-                            @Html.TextBoxFor(x => x.ConfirmPassword, new { @class = "form-control", type = "password" })
+                             @Html.TextBoxFor(x => x.ConfirmPassword, new { @class = "form-control", type = "password",placeholder="Confirm Password" })
                             @Html.ValidationMessageFor(x => x.ConfirmPassword, null, new { @class = "text-danger" })
 
                         </div>
@@ -57,9 +52,9 @@
                         <div class="col-lg-6">
                             <select class="form-control registration-form-select" id="CityId" name="CountryId">
                                 <option disabled="disabled" selected="selected">Country</option>
-                                <option value="0">Pakistan</option>
-                                <option value="1">Iran</option>
-                                <option value="2">China</option>
+                                <option value="1">Pakistan</option>
+                                <option value="2">Iran</option>
+                                <option value="3">China</option>
                             </select>
                             @Html.ValidationMessageFor(x => x.CountryId)
 
@@ -67,15 +62,20 @@
                         <div class="col-lg-6">
                             <select class="form-control registration-form-select" name="CityId" id="CityId">
                                 <option disabled="disabled" selected="selected">City</option>
-                                <option value="0">Lahore</option>
-                                <option value="1">Islamabad</option>
-                                <option value="2">Faisalabad</option>
+                                <option value="2">Lahore</option>
+                                <option value="3">Islamabad</option>
+                                <option value="4">Faisalabad</option>
                             </select>
                             @Html.ValidationMessageFor(x => x.CityId)
                         </div>
-
                     </div>
-
+                    <br />
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <label class="label label-success">@Html.RadioButtonFor(x => x.IsSeller, true, new { @checked = "checked" }) <span>Seller</span></label>
+                            <label class="label label-success">@Html.RadioButtonFor(x => x.IsSeller, false)<span>Buyer</span></label>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-success btn-block" id="app-register-btn">Register</button>
@@ -83,4 +83,4 @@
             }
         </div>
     </div>
-</div>*@
+</div>

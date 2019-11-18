@@ -11,7 +11,7 @@ namespace MarketPlace.Repositories.Migrations
                 "dbo.AdvertisementDetails",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false),
                         Description = c.String(),
                         Discount = c.Double(nullable: false),
                         CreatedOn = c.DateTime(nullable: false),
@@ -19,32 +19,9 @@ namespace MarketPlace.Repositories.Migrations
                         Duration = c.Time(nullable: false, precision: 7),
                         Rank = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.Orders",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        OrderCode = c.String(),
-                        CreatedOn = c.DateTime(nullable: false),
-                        Status = c.Int(nullable: false),
-                        Priority = c.Int(nullable: false),
-                        TotalPrice = c.Double(nullable: false),
-                        Advertisement_Id = c.Int(),
-                        Buyer_Id = c.Int(),
-                        Review_Id = c.Int(),
-                        AdvertisementDetail_Id = c.Int(),
-                    })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Advertisements", t => t.Advertisement_Id)
-                .ForeignKey("dbo.Users", t => t.Buyer_Id)
-                .ForeignKey("dbo.Reviews", t => t.Review_Id)
-                .ForeignKey("dbo.AdvertisementDetails", t => t.AdvertisementDetail_Id)
-                .Index(t => t.Advertisement_Id)
-                .Index(t => t.Buyer_Id)
-                .Index(t => t.Review_Id)
-                .Index(t => t.AdvertisementDetail_Id);
+                .ForeignKey("dbo.Advertisements", t => t.Id)
+                .Index(t => t.Id);
             
             CreateTable(
                 "dbo.Advertisements",
@@ -53,17 +30,18 @@ namespace MarketPlace.Repositories.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Title = c.String(),
                         Price = c.Double(nullable: false),
-                        Badge_Id = c.Int(),
-                        Category_Id = c.Int(),
-                        Seller_Id = c.Int(),
+                        BadgeId = c.Int(),
+                        CategoryId = c.Int(),
+                        SellerId = c.Int(),
+                        DetailId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Badges", t => t.Badge_Id)
-                .ForeignKey("dbo.Categories", t => t.Category_Id)
-                .ForeignKey("dbo.Users", t => t.Seller_Id)
-                .Index(t => t.Badge_Id)
-                .Index(t => t.Category_Id)
-                .Index(t => t.Seller_Id);
+                .ForeignKey("dbo.Badges", t => t.BadgeId)
+                .ForeignKey("dbo.Categories", t => t.CategoryId)
+                .ForeignKey("dbo.Sellers", t => t.SellerId)
+                .Index(t => t.BadgeId)
+                .Index(t => t.CategoryId)
+                .Index(t => t.SellerId);
             
             CreateTable(
                 "dbo.Badges",
@@ -89,11 +67,11 @@ namespace MarketPlace.Repositories.Migrations
                         Width = c.Single(nullable: false),
                         Caption = c.String(),
                         Description = c.String(),
-                        Advertisement_Id = c.Int(),
+                        AdvertisementId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Advertisements", t => t.Advertisement_Id)
-                .Index(t => t.Advertisement_Id);
+                .ForeignKey("dbo.Advertisements", t => t.AdvertisementId, cascadeDelete: true)
+                .Index(t => t.AdvertisementId);
             
             CreateTable(
                 "dbo.Categories",
@@ -102,11 +80,11 @@ namespace MarketPlace.Repositories.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                         CreatedOn = c.DateTime(nullable: false),
-                        SubCategory_Id = c.Int(),
+                        SubCategoryId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.SubCategories", t => t.SubCategory_Id)
-                .Index(t => t.SubCategory_Id);
+                .ForeignKey("dbo.SubCategories", t => t.SubCategoryId, cascadeDelete: true)
+                .Index(t => t.SubCategoryId);
             
             CreateTable(
                 "dbo.SubCategories",
@@ -128,22 +106,21 @@ namespace MarketPlace.Repositories.Migrations
                         LastName = c.String(),
                         Email = c.String(),
                         Phone = c.String(),
+                        AddressId = c.Int(),
+                        ProfileImageId = c.Int(),
+                        CoverImageId = c.Int(),
                         Rank = c.Int(nullable: false),
-                        Discriminator = c.String(nullable: false, maxLength: 128),
-                        Address_Id = c.Int(),
-                        Badge_Id = c.Int(),
-                        CoverImage_Id = c.Int(),
-                        ProfileImage_Id = c.Int(),
+                        BadgeId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Addresses", t => t.Address_Id)
-                .ForeignKey("dbo.Badges", t => t.Badge_Id)
-                .ForeignKey("dbo.Images", t => t.CoverImage_Id)
-                .ForeignKey("dbo.Images", t => t.ProfileImage_Id)
-                .Index(t => t.Address_Id)
-                .Index(t => t.Badge_Id)
-                .Index(t => t.CoverImage_Id)
-                .Index(t => t.ProfileImage_Id);
+                .ForeignKey("dbo.Addresses", t => t.AddressId)
+                .ForeignKey("dbo.Badges", t => t.BadgeId)
+                .ForeignKey("dbo.Images", t => t.CoverImageId)
+                .ForeignKey("dbo.Images", t => t.ProfileImageId)
+                .Index(t => t.AddressId)
+                .Index(t => t.BadgeId)
+                .Index(t => t.CoverImageId)
+                .Index(t => t.ProfileImageId);
             
             CreateTable(
                 "dbo.Addresses",
@@ -194,8 +171,33 @@ namespace MarketPlace.Repositories.Migrations
                         Seller_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Users", t => t.Seller_Id)
+                .ForeignKey("dbo.Sellers", t => t.Seller_Id)
                 .Index(t => t.Seller_Id);
+            
+            CreateTable(
+                "dbo.Orders",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        OrderCode = c.String(),
+                        AdvertisementId = c.Int(nullable: false),
+                        BuyerId = c.Int(nullable: false),
+                        CreatedOn = c.DateTime(nullable: false),
+                        Status = c.Int(nullable: false),
+                        Priority = c.Int(nullable: false),
+                        TotalPrice = c.Double(nullable: false),
+                        ReviewId = c.Int(nullable: false),
+                        AdvertisementDetail_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Advertisements", t => t.AdvertisementId, cascadeDelete: true)
+                .ForeignKey("dbo.Buyers", t => t.BuyerId)
+                .ForeignKey("dbo.Reviews", t => t.ReviewId, cascadeDelete: true)
+                .ForeignKey("dbo.AdvertisementDetails", t => t.AdvertisementDetail_Id)
+                .Index(t => t.AdvertisementId)
+                .Index(t => t.BuyerId)
+                .Index(t => t.ReviewId)
+                .Index(t => t.AdvertisementDetail_Id);
             
             CreateTable(
                 "dbo.PaymentMethods",
@@ -208,45 +210,74 @@ namespace MarketPlace.Repositories.Migrations
                     })
                 .PrimaryKey(t => t.Id);
             
+            CreateTable(
+                "dbo.Buyers",
+                c => new
+                    {
+                        Id = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Users", t => t.Id)
+                .Index(t => t.Id);
+            
+            CreateTable(
+                "dbo.Sellers",
+                c => new
+                    {
+                        Id = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Users", t => t.Id)
+                .Index(t => t.Id);
+            
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Users", "ProfileImage_Id", "dbo.Images");
-            DropForeignKey("dbo.Users", "CoverImage_Id", "dbo.Images");
-            DropForeignKey("dbo.Users", "Badge_Id", "dbo.Badges");
-            DropForeignKey("dbo.Users", "Address_Id", "dbo.Addresses");
+            DropForeignKey("dbo.Sellers", "Id", "dbo.Users");
+            DropForeignKey("dbo.Buyers", "Id", "dbo.Users");
+            DropForeignKey("dbo.Users", "ProfileImageId", "dbo.Images");
+            DropForeignKey("dbo.Users", "CoverImageId", "dbo.Images");
+            DropForeignKey("dbo.Users", "BadgeId", "dbo.Badges");
+            DropForeignKey("dbo.Users", "AddressId", "dbo.Addresses");
             DropForeignKey("dbo.Orders", "AdvertisementDetail_Id", "dbo.AdvertisementDetails");
-            DropForeignKey("dbo.Orders", "Review_Id", "dbo.Reviews");
-            DropForeignKey("dbo.Orders", "Buyer_Id", "dbo.Users");
-            DropForeignKey("dbo.Orders", "Advertisement_Id", "dbo.Advertisements");
-            DropForeignKey("dbo.Reviews", "Seller_Id", "dbo.Users");
-            DropForeignKey("dbo.Advertisements", "Seller_Id", "dbo.Users");
+            DropForeignKey("dbo.Orders", "ReviewId", "dbo.Reviews");
+            DropForeignKey("dbo.Orders", "BuyerId", "dbo.Buyers");
+            DropForeignKey("dbo.Orders", "AdvertisementId", "dbo.Advertisements");
+            DropForeignKey("dbo.AdvertisementDetails", "Id", "dbo.Advertisements");
+            DropForeignKey("dbo.Reviews", "Seller_Id", "dbo.Sellers");
+            DropForeignKey("dbo.Advertisements", "SellerId", "dbo.Sellers");
             DropForeignKey("dbo.Cities", "Country_Id", "dbo.Countries");
             DropForeignKey("dbo.Addresses", "City_Id", "dbo.Cities");
-            DropForeignKey("dbo.Images", "Advertisement_Id", "dbo.Advertisements");
-            DropForeignKey("dbo.Advertisements", "Category_Id", "dbo.Categories");
-            DropForeignKey("dbo.Categories", "SubCategory_Id", "dbo.SubCategories");
-            DropForeignKey("dbo.Advertisements", "Badge_Id", "dbo.Badges");
+            DropForeignKey("dbo.Advertisements", "CategoryId", "dbo.Categories");
+            DropForeignKey("dbo.Categories", "SubCategoryId", "dbo.SubCategories");
+            DropForeignKey("dbo.Advertisements", "BadgeId", "dbo.Badges");
             DropForeignKey("dbo.Badges", "Icon_Id", "dbo.Images");
-            DropIndex("dbo.Users", new[] { "ProfileImage_Id" });
-            DropIndex("dbo.Users", new[] { "CoverImage_Id" });
-            DropIndex("dbo.Users", new[] { "Badge_Id" });
-            DropIndex("dbo.Users", new[] { "Address_Id" });
+            DropForeignKey("dbo.Images", "AdvertisementId", "dbo.Advertisements");
+            DropIndex("dbo.Sellers", new[] { "Id" });
+            DropIndex("dbo.Buyers", new[] { "Id" });
+            DropIndex("dbo.Users", new[] { "ProfileImageId" });
+            DropIndex("dbo.Users", new[] { "CoverImageId" });
+            DropIndex("dbo.Users", new[] { "BadgeId" });
+            DropIndex("dbo.Users", new[] { "AddressId" });
             DropIndex("dbo.Orders", new[] { "AdvertisementDetail_Id" });
-            DropIndex("dbo.Orders", new[] { "Review_Id" });
-            DropIndex("dbo.Orders", new[] { "Buyer_Id" });
-            DropIndex("dbo.Orders", new[] { "Advertisement_Id" });
+            DropIndex("dbo.Orders", new[] { "ReviewId" });
+            DropIndex("dbo.Orders", new[] { "BuyerId" });
+            DropIndex("dbo.Orders", new[] { "AdvertisementId" });
+            DropIndex("dbo.AdvertisementDetails", new[] { "Id" });
             DropIndex("dbo.Reviews", new[] { "Seller_Id" });
-            DropIndex("dbo.Advertisements", new[] { "Seller_Id" });
+            DropIndex("dbo.Advertisements", new[] { "SellerId" });
             DropIndex("dbo.Cities", new[] { "Country_Id" });
             DropIndex("dbo.Addresses", new[] { "City_Id" });
-            DropIndex("dbo.Images", new[] { "Advertisement_Id" });
-            DropIndex("dbo.Advertisements", new[] { "Category_Id" });
-            DropIndex("dbo.Categories", new[] { "SubCategory_Id" });
-            DropIndex("dbo.Advertisements", new[] { "Badge_Id" });
+            DropIndex("dbo.Advertisements", new[] { "CategoryId" });
+            DropIndex("dbo.Categories", new[] { "SubCategoryId" });
+            DropIndex("dbo.Advertisements", new[] { "BadgeId" });
             DropIndex("dbo.Badges", new[] { "Icon_Id" });
+            DropIndex("dbo.Images", new[] { "AdvertisementId" });
+            DropTable("dbo.Sellers");
+            DropTable("dbo.Buyers");
             DropTable("dbo.PaymentMethods");
+            DropTable("dbo.Orders");
             DropTable("dbo.Reviews");
             DropTable("dbo.Countries");
             DropTable("dbo.Cities");
@@ -257,7 +288,6 @@ namespace MarketPlace.Repositories.Migrations
             DropTable("dbo.Images");
             DropTable("dbo.Badges");
             DropTable("dbo.Advertisements");
-            DropTable("dbo.Orders");
             DropTable("dbo.AdvertisementDetails");
         }
     }
