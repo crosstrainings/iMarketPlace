@@ -15,18 +15,18 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-lg-6">
-                             @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" ,placeholder="First Name" })
+                            @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", placeholder = "First Name" })
                             @Html.ValidationMessageFor(x => x.FirstName, null, new { @class = "text-danger" })
                         </div>
                         <div class="col-lg-6">
-                             @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", placeholder="Last Name" })
+                            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", placeholder = "Last Name" })
                             @Html.ValidationMessageFor(x => x.LastName, null, new { @class = "text-danger" })
                         </div>
                     </div>
                     <br />
                     <div class="row">
                         <div class="col-lg-12">
-                             @Html.TextBoxFor(x => x.Email, new { @class = "form-control", type = "email",placeholder="Email" })
+                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", type = "email", placeholder = "Email" })
                             @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })
 
                         </div>
@@ -34,7 +34,7 @@
                     <br />
                     <div class="row">
                         <div class="col-lg-12">
-                             @Html.TextBoxFor(x => x.Password, new { @class = "form-control", type = "password",placeholder="Password" })
+                            @Html.TextBoxFor(x => x.Password, new { @class = "form-control", type = "password", placeholder = "Password" })
                             @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
 
                         </div>
@@ -42,7 +42,7 @@
                     <br />
                     <div class="row">
                         <div class="col-lg-12">
-                             @Html.TextBoxFor(x => x.ConfirmPassword, new { @class = "form-control", type = "password",placeholder="Confirm Password" })
+                            @Html.TextBoxFor(x => x.ConfirmPassword, new { @class = "form-control", type = "password", placeholder = "Confirm Password" })
                             @Html.ValidationMessageFor(x => x.ConfirmPassword, null, new { @class = "text-danger" })
 
                         </div>
@@ -50,7 +50,7 @@
                     <br />
                     <div class="row">
                         <div class="col-lg-6">
-                            <select class="form-control registration-form-select" id="CityId" name="CountryId">
+                            <select class="form-control registration-form-select country-list" id="CountryId" name="CountryId">
                                 <option disabled="disabled" selected="selected">Country</option>
                                 <option value="1">Pakistan</option>
                                 <option value="2">Iran</option>
@@ -84,3 +84,31 @@
         </div>
     </div>
 </div>
+<script src="~/Scripts/jquery-2.2.3.min.js"></script>
+
+<script>
+    //AJAX (Asynchronise JavaScript and XML)
+    //Use
+    //JavaScript
+    //var ajaxObj = new XMLHttpRequest();
+    //jQuery
+    //jQuery.ajax({
+    //});
+    //React / Angular
+    //RxJS
+    $(function () {
+        $(".country-list").change(function () {
+            var countryId = $(this).select("option:selected").val();
+            $.ajax({
+                url: '/CONTROLLER/ACTION/ID',
+                method: 'get'
+            }).done(function (cityList) {
+
+                //Display Cities
+
+            }).fail(function () {
+                //On Error
+            });
+        });
+    });
+</script>
