@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LocationRespository.cs" />
     <Compile Include="Migrations\201911171426325_updated-city.cs" />
     <Compile Include="Migrations\201911171426325_updated-city.Designer.cs">
       <DependentUpon>201911171426325_updated-city.cs</DependentUpon>
