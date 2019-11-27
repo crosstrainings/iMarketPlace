@@ -60,12 +60,11 @@
 
                         </div>
                         <div class="col-lg-6">
-                            <select class="form-control registration-form-select" name="CityId" id="CityId">
-                                <option disabled="disabled" selected="selected">City</option>
-                                <option value="2">Lahore</option>
-                                <option value="3">Islamabad</option>
-                                <option value="4">Faisalabad</option>
-                            </select>
+                            <div class="city-list">
+                                <select class="form-control registration-form-select" name="CityId" id="CityId">
+                                    <option disabled="disabled" selected="selected">City</option>
+                                </select>
+                            </div>
                             @Html.ValidationMessageFor(x => x.CityId)
                         </div>
                     </div>
@@ -100,10 +99,18 @@
         $(".country-list").change(function () {
             var countryId = $(this).select("option:selected").val();
             $.ajax({
-                url: '/CONTROLLER/ACTION/ID',
+                url: `/Location/GetCitiesByCountryId?countryId=${countryId}`,
                 method: 'get'
-            }).done(function (cityList) {
-
+            }).done(function (tagWithData) {
+                $('.city-list').html(tagWithData)
+                //if (cityList.length > 0) {
+                //    var tag = '<option disabled="disabled" selected="selected">City</option>'
+                //    for (var i = 0; i < cityList.length; i++) {
+                //        var city = cityList[i];
+                //        tag += `<option value="${city.Id}">${city.Name}</option>`
+                //        $('.city-list').html(tag);
+                //    }
+                //}
                 //Display Cities
 
             }).fail(function () {

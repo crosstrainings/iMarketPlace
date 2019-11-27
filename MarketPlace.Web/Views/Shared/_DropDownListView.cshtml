@@ -1,0 +1,12 @@
+﻿@using iMarketPlace.Web.Models
+@model DropDownModel
+@{
+    Model.List.Add(new SelectListItem()
+    {
+        Value = "0",
+        Text = "City",
+        Disabled = true
+    });
+    Model.List.Reverse();
+}
+@Html.DropDownListFor(x => x.Name, Model.List, new { @class = "form-control registration-form-select" })

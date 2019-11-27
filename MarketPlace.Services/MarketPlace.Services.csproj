@@ -42,10 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LocationService.cs" />
     <Compile Include="SellerService.cs" />
     <Compile Include="BuyerService.cs" />
     <Compile Include="AdvertisementService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Translators\EntityToVMTranslator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MarketPlace.Entities\MarketPlace.Entities.csproj">
