@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketPlace.Common", "Marke
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketPlace.ViewModels", "MarketPlace.ViewModels\MarketPlace.ViewModels.csproj", "{82734F9A-A890-4FEE-84A7-DAEEF679FBDC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketPlace.UnitTests", "MarketPlace.UnitTests\MarketPlace.UnitTests.csproj", "{EF4A7B78-59CB-4825-ADF0-F438E1B785DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6F4358E7-0FAD-4F0D-89FE-FC8D8D0B92B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,9 +49,16 @@ Global
 		{82734F9A-A890-4FEE-84A7-DAEEF679FBDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82734F9A-A890-4FEE-84A7-DAEEF679FBDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82734F9A-A890-4FEE-84A7-DAEEF679FBDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF4A7B78-59CB-4825-ADF0-F438E1B785DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF4A7B78-59CB-4825-ADF0-F438E1B785DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF4A7B78-59CB-4825-ADF0-F438E1B785DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF4A7B78-59CB-4825-ADF0-F438E1B785DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EF4A7B78-59CB-4825-ADF0-F438E1B785DF} = {6F4358E7-0FAD-4F0D-89FE-FC8D8D0B92B6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D51B70E7-C1D1-4307-8BF3-9E93EF8E6CE8}
