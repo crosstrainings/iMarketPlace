@@ -16,14 +16,30 @@ namespace iMarketPlace.Web.Controllers
             return View();
         }
 
+        //TDD (Test Driven Developement)
+        //Unit Testing
+        //Microsoft/Visual Studio Test Framework
+        //nUnit Test
+        //xUnit Test
         public ActionResult Register(Person person)
         {
+            var saved = false;
+            var avc = string.Empty;
             if (person.IsSeller)
-                _sellerService.Add(person);
+            {
+                saved = _sellerService.Add(person);
+            }
             else
-                _buyerService.Add(person);
+                saved = _buyerService.Add(person);
 
-            return RedirectToAction("Profile");
+            if (saved)
+            {
+                return RedirectToAction("Profile");
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
