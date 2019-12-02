@@ -177,6 +177,8 @@
     <Content Include="Content\images\banners\%288%29.jpg" />
     <Content Include="Content\images\banners\1.jpg" />
     <Content Include="Content\images\banners\3.jpg" />
+    <Content Include="Content\images\Others\BrandPlaceholder.PNG" />
+    <Content Include="Content\images\Others\SaleImage.jpg" />
     <Content Include="Content\images\products\%281%29.jpg" />
     <Content Include="Content\images\products\%2810%29.jpg" />
     <Content Include="Content\images\products\%2811%29.jpg" />

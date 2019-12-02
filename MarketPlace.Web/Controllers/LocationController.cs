@@ -20,7 +20,7 @@ namespace iMarketPlace.Web.Controllers
 
             DropDownModel model = new DropDownModel()
             {
-                Name = "city-list",
+                Name = "CityId",
                 List = cities.ToSelectListItem()
             };
 

@@ -8,7 +8,7 @@ namespace iMarketPlace.Web.Controllers
         protected readonly SellerService _sellerService;
         protected readonly BuyerService _buyerService;
         protected readonly LocationService _locationService;
-
+        protected readonly UserService _userService;
 
         public BaseController()
         {
@@ -16,6 +16,7 @@ namespace iMarketPlace.Web.Controllers
             _sellerService = new SellerService();
             _buyerService = new BuyerService();
             _locationService = new LocationService();
+            _userService = new UserService();
         }
     }
 }

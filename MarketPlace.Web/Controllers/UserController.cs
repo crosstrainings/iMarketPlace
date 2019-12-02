@@ -7,39 +7,45 @@ namespace iMarketPlace.Web.Controllers
     {
         public ActionResult Login(string userName, string password)
         {
-            return RedirectToAction("Profile");
+            //Sessions (Globally Accessable)
+            //Server Data Storage
+            //Key(Browser|Client) Value(Server) Pair
+            if (_userService.UserExists(userName, password))
+            {
+                Session.Add("User", "User");
+                return RedirectToAction("Profile");
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Profile()
         {
-            ViewBag.Advertisements = _advertisementService.Get();
-            return View();
+            var user = Session["User"];
+            if (user != null)
+            {
+                ViewBag.Advertisements = _advertisementService.Get();
+                return View();
+            }
+            return RedirectToAction("Index", "Home");
         }
 
-        //TDD (Test Driven Developement)
-        //Unit Testing
-        //Microsoft/Visual Studio Test Framework
-        //nUnit Test
-        //xUnit Test
+
+        //State Management
+        //Web - HTTP (By Nature Stateless)
+        //State Management Ways
+        //Sessions
+        //Cookies
+        //TempData
         public ActionResult Register(Person person)
         {
             var saved = false;
-            var avc = string.Empty;
             if (person.IsSeller)
-            {
                 saved = _sellerService.Add(person);
-            }
             else
                 saved = _buyerService.Add(person);
-
             if (saved)
-            {
-                return RedirectToAction("Profile");
-            }
-            else
-            {
-                return null;
-            }
+                Session.Add("User", "User");
+            return RedirectToAction("Profile");
         }
     }
 }
