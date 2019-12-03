@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+
+    <!-- Bootstrap -->
+    <link rel="shortcut icon" href="~/Content/Images/Icons/fav (1).png" />
+
+
+    <link href="~/Content/Admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="@Url.Content("~/Content/Admin/vendors/font-awesome/css/font-awesome.min.css")" rel="stylesheet">
+
+
+
+    <!-- NProgress -->
+    <link href="@Url.Content("~/Content/Admin/vendors/nprogress/nprogress.css")" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="@Url.Content("~/Content/Admin/build/css/custom.min.css")" rel="stylesheet">
+
+
+
+    @*@Html.DevExpress().GetStyleSheets(
+            new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+            new StyleSheet { ExtensionSuite = ExtensionSuite.Editors },
+            new StyleSheet { ExtensionSuite = ExtensionSuite.GridView }
+        )
+        @Html.DevExpress().GetScripts(
+            new Script { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+            new Script { ExtensionSuite = ExtensionSuite.Editors },
+            new Script { ExtensionSuite = ExtensionSuite.GridView }
+        )*@
+
+
+
+
+
+</head>
+<body>
+    @Html.Partial("_HeaderPartialView")
+    <!-- page content -->
+    <div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12" style="height: 150px;">
+                <div class="col-md-offset-2 col-md-10" id="AdminMainPanel">
+                    @RenderBody()
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- /page content -->
+    <!-- jQuery -->
+    <script src="@Url.Content("~/Content/Admin/vendors/jquery/dist/jquery.min.js")"></script>
+    <!-- Bootstrap -->
+    <script src="@Url.Content("~/Content/Admin/vendors/bootstrap/dist/js/bootstrap.min.js")"></script>
+    <!-- FastClick -->
+    <script src="@Url.Content("~/Content/Admin/vendors/fastclick/lib/fastclick.js")"></script>
+    <!-- NProgress -->
+    <script src="@Url.Content("~/Content/Admin/vendors/nprogress/nprogress.js")"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="@Url.Content("~/Content/Admin/build/js/custom.min.js")"></script>
+    @RenderSection("Script", false)
+    <script>
+        $(".AdmFunc").click(function () {
+            $.ajax({
+                url: "/Admin/" + $(this).data("value"),
+                method: "GET",
+                success: function (result) {
+                    $("#AdminMainPanel").html(result);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

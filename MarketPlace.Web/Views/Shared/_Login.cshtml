@@ -1,41 +1,47 @@
-﻿<div class="modal fade" id="login-modal">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <form action="/User/Login" method="post">
+﻿@using MarketPlace.ViewModels
+@model LoginViewModel
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<div class="modal fade" id="login-modal" style="margin-top: 110px;">
+    <div class="modal-dialog modal-sm ">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">
+                    <strong class="text-muted">Login to iMarket Place</strong>
+                </h4>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("LogIn", "User"))
+                {
+                    <span style="font-weight: bold;color: maroon" id="lgnmsg"></span>
+                    @Html.ValidationMessageFor(x => x.UserName, null, new { @class = "text-danger" })
 
-                @*
-                        HTTP REQUEST:
-                        VERB: GET | POST | PUT | DELETE
-                    *@
+                    @Html.TextBoxFor(x => x.UserName, null, new { @class = "form-control", id = "un", placeholder = "Email / Username", style = "padding:20px" })
+                    <br />
+                    @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
 
-                <div class="modal-header bg-primary">
-                    <div class="modal-title text-center">
-                        Login
-                        <span class="close" data-dismiss="modal">&times;</span>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input type="text" name="userName" placeholder="Enter User Name" class="form-control">
-                            <div class="input-group-addon">
-                                <span class="glyphicon glyphicon-user"></span>
-                            </div>
+                    @Html.PasswordFor(x => x.Password, new { @class = "form-control", id = "psd", placeholder = "Password", style = "padding:20px" })
+                    <br />
+                    <button class="btn form-control" id="lgn" style="color:white;background: #db2e2e;font-weight: bold">Login</button>
+                    <div class="row" style="font-size: 12px;margin-top: 10px">
+                        <div class="col-lg-7" style="color: gray">
+                            <input type="checkbox" id="rmmbr" name="rememberme" />&nbsp;
+                            <label for="rmmbr" style="margin-top: 2px; position: absolute">
+                                Remember Me?
+                            </label>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input type="password" name="password" placeholder="Enter Password" class="form-control">
-                            <div class="input-group-addon">
-                                <span class="glyphicon glyphicon-lock"></span>
-                            </div>
+                        <div class="col-lg-5" style="color: #2AC047">
+                            <a href="#">  Forgot Password</a>
                         </div>
+
                     </div>
+                }
+            </div>
+            <div class="modal-footer">
+                <div class="row text-center" style="color: #b3afaf">
+                    Not a member yet? <a href="#" data-toggle="modal" data-target="#register-modal ">Join now</a>
                 </div>
-                <div class="modal-footer">
-                    <button class="btn btn-success" id="app-login-btn">Login</button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>

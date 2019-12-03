@@ -1,18 +1,24 @@
 ﻿@using MarketPlace.ViewModels
 @model Person
 
+<style>
+    input.form-control {
+        padding: 20px;
+    }
+</style>
 <div class="modal fade" id="register-modal">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
-            <div class="modal-header bg-primary">
-                <div class="modal-title text-center">
-                    Register
-                    <span class="close" data-dismiss="modal">&times;</span>
-                </div>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">
+                    <strong class="text-muted">Join iMarketplace</strong>
+                </h4>
             </div>
-            @using (Html.BeginForm("Register", "User", FormMethod.Post))
-            {
-                <div class="modal-body">
+            <div class="modal-body">
+
+                @using (Html.BeginForm("Register", "User", FormMethod.Post))
+                {
                     <div class="row">
                         <div class="col-lg-6">
                             @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", placeholder = "First Name" })
@@ -71,15 +77,19 @@
                     <br />
                     <div class="row">
                         <div class="col-lg-12">
-                            <label class="label label-success">@Html.RadioButtonFor(x => x.IsSeller, true, new { @checked = "checked" }) <span>Seller</span></label>
-                            <label class="label label-success">@Html.RadioButtonFor(x => x.IsSeller, false)<span>Buyer</span></label>
+                            <label class="text-muted">@Html.RadioButtonFor(x => x.IsSeller, true, new { @checked = "checked" }) <span>Seller</span></label>
+                            <label class="text-muted">@Html.RadioButtonFor(x => x.IsSeller, false)<span>Buyer</span></label>
                         </div>
                     </div>
+                    <button class="btn form-control" style="color:white;background: #db2e2e;font-weight: bold">Join</button>
+                    <span style="font-size: 10px;color: #b3afaf">By joining I agree to receive emails from Market Place.</span>
+                }
+            </div>
+            <div class="modal-footer">
+                <div class="row text-center" style="color: #b3afaf">
+                    Already a member? <a href="#" data-toggle="modal" data-target="#login-modal" data-dismiss="modal">Sign In</a>
                 </div>
-                <div class="modal-footer">
-                    <button class="btn btn-success btn-block" id="app-register-btn">Register</button>
-                </div>
-            }
+            </div>
         </div>
     </div>
 </div>

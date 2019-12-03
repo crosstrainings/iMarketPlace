@@ -1,17 +1,96 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    ViewBag.Title = "Admin";
 }
 
-<!DOCTYPE html>
+@*<div class="row">
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> 
+        <div class="col-lg-offset-1 col-lg-9"  style="background: yellowgreen;height: 100px">
+
+        </div>
     </div>
-</body>
-</html>
+    <br />
+    <br />*@
+<br />
+<div class="row">
+    <div class="col-lg-10">
+        <div class="row">
+
+
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        All Sellers
+
+                        <span class="label label-warning pull-right">10</span>
+                    </div>
+                    <div class="panel-body">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        All Recipes
+                        <span class="label label-warning pull-right">10</span>
+                    </div>
+                    <div class="panel-body">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        All Orders
+                        <span class="label label-warning pull-right">10</span>
+                    </div>
+                    <div class="panel-body">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">Active Users</div>
+            <div class="panel-body" style="height: 300px">
+                @*@{
+
+                    List<SellerProfile> users = (List<SellerProfile>)ViewBag.ActiveUsers;
+                }
+                @if (users != null)
+                {
+                    foreach (var user in users)
+                    {
+                        <div class="row" style="background:lightgray;margin-top:1px">
+                            <img src="@user.ProfileImage.FolderPath.Replace('~',' ')@user.ProfileImage.ImageName" class="img-circle" height="30" width="30" style="border: 1px solid lightgray" />
+                            <a style="text-decoration: none; font-weight: bold; color: gray">
+                                @user.UserName
+                            </a>
+
+
+
+                            <img src="/Content/Images/Icons/activeicon.png" style="height: 8px;width: 8px" />
+                        </div>
+
+                    }
+                }
+                else
+                {
+                    <i class="glyphicon glyphicon-user img-circle" height="30" width="30" style="border: 1px solid lightgray" />
+                    <a style="text-decoration: none; font-weight: bold; color: gray">
+                        no active users
+                    </a>
+
+
+
+
+                }*@
+
+
+            </div>
+        </div>
+    </div>
+</div>

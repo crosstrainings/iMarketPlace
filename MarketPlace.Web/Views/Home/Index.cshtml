@@ -5,6 +5,55 @@
     <style>
         .product-card {
             border-radius: 0;
+            padding-top: 0px;
+            padding-bottom: 5px;
+            background: white;
+            box-shadow: 0;
+        }
+
+        h2.title {
+            color: lightgray;
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 15px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+            h2.title:before {
+                content: " ";
+                position: absolute;
+                background: #fff;
+                bottom: -6px;
+                width: 220px;
+                height: 30px;
+                z-index: -1;
+                left: 50%;
+                margin-left: -110px;
+            }
+
+            h2.title:after {
+                content: " ";
+                position: absolute;
+                border: 1px solid #f5f5f5;
+                bottom: 8px;
+                left: 0;
+                width: 100%;
+                height: 0;
+                z-index: -2;
+            }
+
+        .product-card-img {
+            box-shadow: none;
+            border: 0;
+            padding-top: 30px;
+        }
+
+        .list-group-item a {
+            text-decoration: none;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -77,19 +126,34 @@
             <div class="col-lg-2 hidden-md">
                 <ul class="list-group" id="app-main-category-list">
                     <li class="list-group-item">
-                        <a href="#" id="1">Vehicles</a>
+                        <a href="#" id="1">
+                            <span class="glyphicon glyphicon-plus"></span>
+                            vehicles
+                        </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="#" id="2">Electronics</a>
+                        <a href="#" id="2">
+                            <span class="glyphicon glyphicon-plus"></span>
+                            electronics
+                        </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="#" id="3">Sports</a>
+                        <a href="#" id="3">
+                            <span class="glyphicon glyphicon-plus"></span>
+                            sports
+                        </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="#" id="4">Fitness</a>
+                        <a href="#" id="4">
+                            <span class="glyphicon glyphicon-plus"></span>
+                            fitness
+                        </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="#" id="5">Clothes</a>
+                        <a href="#" id="5">
+                            <span class="glyphicon glyphicon-plus"></span>
+                            clothes
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -102,10 +166,10 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img src="/content/images/banners/1.jpg" style="height: 298px;" class="img-responsive">
+                                <img src="/content/images/banners/new.png" style="height: 298px;" class="img-responsive">
                             </div>
                             <div class="item">
-                                <img src="/content/images/banners/3.jpg" style="height: 298px;" class="img-responsive">
+                                <img src="/content/images/banners/new.png" style="height: 298px;" class="img-responsive">
                             </div>
                         </div>
                         <a href="#mycarousel" class="carousel-control left" data-slide="prev">
@@ -117,93 +181,59 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 ">
-                <div class="panel panel-default">
-                    <div class="panel-heading" style="padding: 5px">
-                        <div class="panel-title">
-                            <span style="font-size: 12px;font-weight: bold">Updates</span>
-                        </div>
-                    </div>
-                    <div class="panel-body" style="padding: 6px;">
-                        <div class="col-lg-12">
-                            <img src="~/Content/images/Others/SaleImage.JPG" class="img-responsive" style="height:245px" />
-                        </div>
-                    </div>
-                    <div class="panel-footer" style="padding: 2px">
-                        <span style="font-size: 10px; cursor: pointer;">see more</span>
-
-                    </div>
-                </div>
+            <div class="col-lg-2">
+                    <img src="~/Content/images/Others/SaleImage.JPG" class="img-responsive img-thumbnail" style="height:300px" />
             </div>
         </div>
-        <!-- /.categories - banner - area -->
-
-        <div class="row">
-            <div class="col-lg-2 hidden-md">
-                @if (ViewBag.IsLoggedIn == true)
-                {
-                    @RenderPage("../shared/_RecentlyViewed.cshtml")
-                }
+    </div>
+    <!-- /.categories - banner - area -->
+    <div class="row">
+        <div class="col-lg-2 hidden-md">
+            @if (ViewBag.IsLoggedIn == true)
+            {
+                @RenderPage("../shared/_RecentlyViewed.cshtml")
+            }
+        </div>
+        <div class="col-lg-8">
+            <div class="row">
+                @Html.Partial("~/Views/Shared/_HomeCategoryRow.cshtml")
             </div>
-            <div class="col-lg-8">
-                <div class="row" id="app-main-products">
 
-                    @if (ViewBag.Advertisements != null)
+            <br />
+            <div class="row">
+                <h2 class="title text-center">Features Items</h2>
+            </div>
+            <div class="row" id="app-main-products">
+
+                @if (ViewBag.Advertisements != null)
+                {
+                    for (int i = 0; i < 2; i++)
                     {
-                        for (int i = 0; i < 5; i++)
+
+                        foreach (Advertisement item in ViewBag.Advertisements)
                         {
-
-                            foreach (Advertisement item in ViewBag.Advertisements)
-                            {
-                                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                    <div class="well well-default product-card" style="padding-top: 10px;padding-bottom: 5px">
-                                        <div class="row" style="height: 145px;">
-                                            <div class="thumbnail">
-                                                <img src="~/Content/images/Others/@Url.Content(item.Images[0].Url)" class="img-responsive" style="height:130px" />
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <span style="font-weight: bold;font-size: 12px">@item.Title | @item.Category.Name</span>
-                                        </div>
-                                        <div class="row">
-                                            <span class="pull-left" style="font-size: 10px;font-weight: bold;">
-                                                <img src="/content/images/1.png" class="img-circle img-thumbnail"
-                                                     style="height: 20px;width: 20px">
-                                                <span>Irshad Ahmed</span>
-                                            </span>
-                                            <span class="pull-right" style="font-size: 10px;margin-top: 2px;font-weight: bold;">
-                                                $
-                                                @item.Price
-                                            </span>
-                                        </div>
-                                        <div class="row">
-                                            <span class="pull-right">
-                                                <button class="btn btn-primary btn-xs">
-                                                    <span class="glyphicon glyphicon-shopping-cart"></span>
-                                                </button>
-                                                <button class="btn btn-success btn-xs">
-                                                    <span class="glyphicon glyphicon-earphone"></span>
-                                                </button>
-                                                <button onclick="onFavoriteButtonClick()" onmouseover="onFavoriteButtonMouseOver()"
-                                                        id="fav-btn" class="btn btn-default btn-xs">
-                                                    <span class="glyphicon glyphicon-heart-empty"></span>
-                                                </button>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            }
+                            @Html.Partial("~/Views/Shared/_AdvertisementCard.cshtml", item)
                         }
                     }
+                }
 
 
+            </div>
+            <br /><br />
+            <div class="row">
+                <h2 class="title text-center">Categories</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <img src="~/Content/images/Others/category-rows.PNG" class="img-responsive" />
                 </div>
             </div>
-            <div class="col-lg-2">
-
-            </div>
+            <br /><br />
         </div>
+        <div class="col-lg-2">
+
+        </div>
+    </div>
     </div><!-- /.container-fluid -->
     @RenderPage("../Shared/_Login.cshtml")
     @RenderPage("../Shared/_Register.cshtml")
@@ -213,6 +243,15 @@
 
     @section IndexScript{
         <script src="~/scripts/app-theme.js"></script>
+        <script>
+            $(function () {
+                $("#app-main-products").hide();
+                setTimeout(function () {
+                    $("#app-main-products").fadeIn(2000);
+                }, 1000);
+            })
+
+        </script>
     }
 </body>
 </html>
