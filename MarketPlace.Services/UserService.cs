@@ -16,13 +16,10 @@ namespace iMarketPlace.Services
             _userRepository = new UserRepository();
         }
 
-        public bool UserExists(string userName,string password)
+        public User UserExists(string userName,string password)
         {
             var user = _userRepository.GetUserByUserNameAndPassword(userName, password);
-            if (user != null)
-                return true;
-            else
-                return false;
+            return user;
         }
     }
 }

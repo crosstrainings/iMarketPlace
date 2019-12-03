@@ -30,5 +30,9 @@ namespace iMarketPlace.Services
         {
             return (List<Advertisement>)_advertisementRepository.Get();
         }
+        public List<Advertisement> GetSellerAds(int userId)
+        {
+            return (List<Advertisement>)_advertisementRepository.GetSellerAds(userId);
+        }
     }
 }

@@ -1,41 +1,41 @@
-﻿using MarketPlace.ViewModels;
+﻿using iMarketPlace.Web.Models;
+using MarketPlace.ViewModels;
 using System.Web.Mvc;
 
 namespace iMarketPlace.Web.Controllers
 {
     public class UserController : BaseController
     {
+
         public ActionResult Login(string userName, string password)
         {
-            //Sessions (Globally Accessable)
-            //Server Data Storage
-            //Key(Browser|Client) Value(Server) Pair
-            if (_userService.UserExists(userName, password))
+
+            var user = _userService.UserExists(userName, password);
+            if (user != null)
             {
-                Session.Add("User", "User");
-                return RedirectToAction("Profile");
+                var userSessioninfo = new UserSessionInfo()
+                {
+                    Id = user.Id,
+                    Name = user.FirstName + " " + user.LastName,
+                    //Avatar = user.ProfileImage.Url
+                };
+                AddSession(USER_SESSION, userSessioninfo);
+                return Json("Success", JsonRequestBehavior.AllowGet);
             }
-            return RedirectToAction("Index", "Home");
+            return Json("Failed", JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Profile()
         {
-            var user = Session["User"];
+            var user = GetSession<UserSessionInfo>(USER_SESSION);
             if (user != null)
             {
-                ViewBag.Advertisements = _advertisementService.Get();
+                ViewBag.Advertisements = _advertisementService.GetSellerAds(user.Id);
                 return View();
             }
             return RedirectToAction("Index", "Home");
         }
 
-
-        //State Management
-        //Web - HTTP (By Nature Stateless)
-        //State Management Ways
-        //Sessions
-        //Cookies
-        //TempData
         public ActionResult Register(Person person)
         {
             var saved = false;
@@ -44,8 +44,26 @@ namespace iMarketPlace.Web.Controllers
             else
                 saved = _buyerService.Add(person);
             if (saved)
-                Session.Add("User", "User");
+            {
+                var user = _userService.UserExists(person.Email, person.Password);
+                if (user != null)
+                {
+                    var userSessioninfo = new UserSessionInfo()
+                    {
+                        Id = user.Id,
+                        Name = user.FirstName + " " + user.LastName,
+                      //  Avatar = user.ProfileImage.Url
+                    };
+                    AddSession(USER_SESSION, userSessioninfo);
+                }
+            }
             return RedirectToAction("Profile");
+        }
+
+        public ActionResult Logout()
+        {
+            RemoveSession();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
