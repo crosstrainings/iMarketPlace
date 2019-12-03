@@ -42,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AdvertisementViewModel.cs" />
     <Compile Include="CityViewModel.cs" />
     <Compile Include="CountryViewModel.cs" />
+    <Compile Include="LoginViewModel.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
