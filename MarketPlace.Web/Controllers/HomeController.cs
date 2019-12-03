@@ -4,14 +4,20 @@ namespace iMarketPlace.Web.Controllers
 {
     public class HomeController : BaseController
     {
-        public static bool IsLoggedIn = false;
         public HomeController()
         {
         }
         // GET: Home
         public ActionResult Index()
         {
-            ViewBag.IsLoggedIn = IsLoggedIn;
+            var user = Session["User"];
+            var isLoggedIn = false;
+            if (user != null)
+            {
+                isLoggedIn = user.ToString() == "User" ? true : false;
+            }
+
+            ViewBag.IsLoggedIn = isLoggedIn;
             ViewBag.Advertisements = _advertisementService.Get();
             return View();
         }
