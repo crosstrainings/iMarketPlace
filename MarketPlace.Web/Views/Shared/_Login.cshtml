@@ -11,31 +11,30 @@
                 </h4>
             </div>
             <div class="modal-body">
-                @using (Html.BeginForm("LogIn", "User"))
-                {
-                    <span style="font-weight: bold;color: maroon" id="lgnmsg"></span>
-                    @Html.ValidationMessageFor(x => x.UserName, null, new { @class = "text-danger" })
+                <span style="font-weight: bold;color: maroon" id="login-error-message">
 
-                    @Html.TextBoxFor(x => x.UserName, null, new { @class = "form-control", id = "un", placeholder = "Email / Username", style = "padding:20px" })
-                    <br />
-                    @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
+                </span>
+                @Html.ValidationMessageFor(x => x.UserName, null, new { @class = "text-danger" })
 
-                    @Html.PasswordFor(x => x.Password, new { @class = "form-control", id = "psd", placeholder = "Password", style = "padding:20px" })
-                    <br />
-                    <button class="btn form-control" id="lgn" style="color:white;background: #db2e2e;font-weight: bold">Login</button>
-                    <div class="row" style="font-size: 12px;margin-top: 10px">
-                        <div class="col-lg-7" style="color: gray">
-                            <input type="checkbox" id="rmmbr" name="rememberme" />&nbsp;
-                            <label for="rmmbr" style="margin-top: 2px; position: absolute">
-                                Remember Me?
-                            </label>
-                        </div>
-                        <div class="col-lg-5" style="color: #2AC047">
-                            <a href="#">  Forgot Password</a>
-                        </div>
+                @Html.TextBoxFor(x => x.UserName, null, new { @class = "form-control user-name", id = "un", placeholder = "Email / Username", style = "padding:20px" })
+                <br />
+                @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
 
+                @Html.PasswordFor(x => x.Password, new { @class = "form-control password", id = "psd", placeholder = "Password", style = "padding:20px" })
+                <br />
+                <button class="btn form-control" id="user-login" style="color:white;background: #db2e2e;font-weight: bold">Login</button>
+                <div class="row" style="font-size: 12px;margin-top: 10px">
+                    <div class="col-lg-7" style="color: gray">
+                        <input type="checkbox" id="rmmbr" name="rememberme" />&nbsp;
+                        <label for="rmmbr" style="margin-top: 2px; position: absolute">
+                            Remember Me?
+                        </label>
                     </div>
-                }
+                    <div class="col-lg-5" style="color: #2AC047">
+                        <a href="#">  Forgot Password</a>
+                    </div>
+
+                </div>
             </div>
             <div class="modal-footer">
                 <div class="row text-center" style="color: #b3afaf">
@@ -45,3 +44,43 @@
         </div>
     </div>
 </div>
+<script src="~/Scripts/jquery-2.2.3.min.js"></script>
+<script>
+    $(function () {
+        $("#user-login").click(function () {
+            var userNameInput = $(".user-name");
+            var passwordInput = $(".password");
+            var errorBorder = { "border": "1px solid red" };
+            var normalBorder = { "border": "1px solid lightgray" };
+
+            var userName = userNameInput.val();
+            var password = passwordInput.val();
+            if (userName.length > 0) {
+                userNameInput.css(normalBorder);
+                if (password.length > 0) {
+                    passwordInput.css(normalBorder);
+                    $(this).html("Logging...");
+                    $("#login-error-message").html("");
+                    $.ajax({
+                        url: `/User/Login?userName=${userName}&password=${password}`,
+                        method: 'get'
+                    }).done(function (response) {
+                        $("#user-login").html("Login");
+                        if (response === "Failed") {
+                            $("#login-error-message").html("username or password incorrect")
+                        } else {
+                            window.location.href = "/User/Profile";
+                        }
+                        //Success
+                    }).fail(function () {
+                        //Fail
+                    });
+                } else {
+                    passwordInput.css(errorBorder);
+                }
+            } else {
+                userNameInput.css(errorBorder);
+            }
+        });
+    });
+</script>

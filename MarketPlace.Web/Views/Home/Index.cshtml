@@ -89,10 +89,13 @@
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            @if (ViewBag.IsLoggedIn == true)
+                            @if (ViewBag.UserInfo != null)
                             {
                                 <li>
-                                    <a href="#">User</a>
+                                    <a href="#">@ViewBag.UserInfo.Name</a>
+                                </li>
+                                <li>
+                                    <a href="/User/Logout">Logout</a>
                                 </li>
                             }
                             else
@@ -182,7 +185,7 @@
                 </div>
             </div>
             <div class="col-lg-2">
-                    <img src="~/Content/images/Others/SaleImage.JPG" class="img-responsive img-thumbnail" style="height:300px" />
+                <img src="~/Content/images/Others/SaleImage.JPG" class="img-responsive img-thumbnail" style="height:300px" />
             </div>
         </div>
     </div>

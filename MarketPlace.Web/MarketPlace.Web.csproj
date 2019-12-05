@@ -163,6 +163,7 @@
     </Compile>
     <Compile Include="Models\DropDownModel.cs" />
     <Compile Include="Models\Translators\TranslatorHelper.cs" />
+    <Compile Include="Models\UserSessionInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

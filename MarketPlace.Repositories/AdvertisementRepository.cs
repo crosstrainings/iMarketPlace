@@ -47,6 +47,13 @@ namespace MarketPlace.Repositories
             //LINQ EXTENSION 
             //advertisement = context.Advertisements.FirstOrDefault(x => x.Id == id);
             return advertisement;
+        } 
+        
+        public IList<Advertisement> GetSellerAds(int userId)
+        { 
+              return (from ad in context.Advertisements 
+                             where ad.SellerId == userId 
+                             select ad).ToList();
         }
 
     }
