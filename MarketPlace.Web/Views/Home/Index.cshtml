@@ -9,6 +9,7 @@
             padding-bottom: 5px;
             background: white;
             box-shadow: 0;
+            height: 337px;
         }
 
         h2.title {
@@ -188,55 +189,46 @@
                 <img src="~/Content/images/Others/SaleImage.JPG" class="img-responsive img-thumbnail" style="height:300px" />
             </div>
         </div>
-    </div>
-    <!-- /.categories - banner - area -->
-    <div class="row">
-        <div class="col-lg-2 hidden-md">
-            @if (ViewBag.IsLoggedIn == true)
-            {
-                @RenderPage("../shared/_RecentlyViewed.cshtml")
-            }
-        </div>
-        <div class="col-lg-8">
-            <div class="row">
-                @Html.Partial("~/Views/Shared/_HomeCategoryRow.cshtml")
-            </div>
-
-            <br />
-            <div class="row">
-                <h2 class="title text-center">Features Items</h2>
-            </div>
-            <div class="row" id="app-main-products">
-
-                @if (ViewBag.Advertisements != null)
+        <!-- /.categories - banner - area -->
+        <div class="row">
+            <div class="col-lg-2 hidden-md">
+                @if (ViewBag.IsLoggedIn == true)
                 {
-                    for (int i = 0; i < 2; i++)
-                    {
-
-                        foreach (Advertisement item in ViewBag.Advertisements)
-                        {
-                            @Html.Partial("~/Views/Shared/_AdvertisementCard.cshtml", item)
-                        }
-                    }
+                    @RenderPage("../shared/_RecentlyViewed.cshtml")
                 }
-
-
             </div>
-            <br /><br />
-            <div class="row">
-                <h2 class="title text-center">Categories</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <img src="~/Content/images/Others/category-rows.PNG" class="img-responsive" />
+            <div class="col-lg-8">
+                <div class="row">
+                    @Html.Partial("~/Views/Shared/_HomeCategoryRow.cshtml")
                 </div>
-            </div>
-            <br /><br />
-        </div>
-        <div class="col-lg-2">
 
+                <br />
+                <div class="row">
+                    <h2 class="title text-center">Features Items</h2>
+                </div>
+                <div class="row" id="app-main-products">
+
+                </div>
+                <div class="row">
+                    <span class="text-center center-block">
+                        <button class="btn btn-default app-main-load-more" data-skip-value="0" style="width:200px;">Load More</button>
+                    </span>
+                </div>
+                <br /><br />
+                <div class="row">
+                    <h2 class="title text-center">Categories</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <img src="~/Content/images/Others/category-rows.PNG" class="img-responsive" />
+                    </div>
+                </div>
+                <br /><br />
+            </div>
+            <div class="col-lg-2">
+
+            </div>
         </div>
-    </div>
     </div><!-- /.container-fluid -->
     @RenderPage("../Shared/_Login.cshtml")
     @RenderPage("../Shared/_Register.cshtml")
@@ -248,11 +240,26 @@
         <script src="~/scripts/app-theme.js"></script>
         <script>
             $(function () {
-                $("#app-main-products").hide();
-                setTimeout(function () {
-                    $("#app-main-products").fadeIn(2000);
-                }, 1000);
-            })
+                loadData(0, 10);
+                $(".app-main-load-more").click(function () {
+                    var take = 10;
+                    var skip = $(this).data("skip-value");
+                    $(this).html("Loading...");
+                    loadData(skip, take);
+                })
+            });
+            function loadData(skip, take) {
+                $.ajax({
+                    url: `/Product/Load?skip=${skip}&take=${take}`,
+                    method: "get"
+                }).done(function (response) {
+                    $("#app-main-products").append(response.view);
+                    $(".app-main-load-more").data("skip-value", response.Count + skip);
+                    $(".app-main-load-more").html("Load More");
+                }).fail(function () {
+                    alert("fail")
+                })
+            }
 
         </script>
     }

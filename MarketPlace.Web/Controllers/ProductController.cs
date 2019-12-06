@@ -1,5 +1,6 @@
 ﻿using iMarketPlace.Web.Models;
 using MarketPlace.Entities.Advertisements;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace iMarketPlace.Web.Controllers
@@ -15,6 +16,13 @@ namespace iMarketPlace.Web.Controllers
             advertisement.SellerId = user.Id;
             bool isAdded = _advertisementService.Add(advertisement);
             return RedirectToAction("Profile", "User");
+        }
+
+        public ActionResult Load(int skip = 0, int take = 10)
+        {
+            var advertisements = _advertisementService.Get().Skip(skip).Take(take).ToList();
+            var view = ConvertViewToString("_AdvertisementListView", advertisements);
+            return Json(new { view, advertisements.Count }, JsonRequestBehavior.AllowGet);
         }
     }
 }

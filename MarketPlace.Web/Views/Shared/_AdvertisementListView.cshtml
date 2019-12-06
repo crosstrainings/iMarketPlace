@@ -1,0 +1,5 @@
+﻿@model IEnumerable<MarketPlace.Entities.Advertisements.Advertisement>
+@foreach (var item in Model)
+{
+    @Html.Partial("_AdvertisementCard", item)
+}

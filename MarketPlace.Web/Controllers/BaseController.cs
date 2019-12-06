@@ -1,4 +1,5 @@
 ﻿using iMarketPlace.Services;
+using System.IO;
 using System.Web.Mvc;
 namespace iMarketPlace.Web.Controllers
 {
@@ -31,6 +32,17 @@ namespace iMarketPlace.Web.Controllers
         public void RemoveSession()
         {
             Session.Abandon();
+        }
+        protected string ConvertViewToString(string viewName, object model)
+        {
+            ViewData.Model = model;
+            using (var writer = new StringWriter())
+            {
+                ViewEngineResult vResult = ViewEngines.Engines.FindPartialView(ControllerContext, viewName);
+                ViewContext vContext = new ViewContext(this.ControllerContext, vResult.View, ViewData, new TempDataDictionary(), writer);
+                vResult.View.Render(vContext, writer);
+                return writer.ToString();
+            }
         }
 
     }

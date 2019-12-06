@@ -1,4 +1,5 @@
 ﻿using iMarketPlace.Web.Models;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace iMarketPlace.Web.Controllers
@@ -19,7 +20,6 @@ namespace iMarketPlace.Web.Controllers
             }
 
             ViewBag.UserInfo = userInfo;
-            ViewBag.Advertisements = _advertisementService.Get();
             return View();
         }
     }
