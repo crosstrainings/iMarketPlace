@@ -27,7 +27,8 @@ namespace MarketPlace.Repositories
 
         public IList<Advertisement> Get()
         {
-            return context.Advertisements.OrderByDescending(x => x.Id).ToList();
+            var data = context.Advertisements.OrderByDescending(x => x.Id).ToList();
+            return data;
         }
         public Advertisement Get(string code)
         {
