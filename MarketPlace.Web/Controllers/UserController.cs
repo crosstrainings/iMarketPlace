@@ -7,6 +7,14 @@ namespace iMarketPlace.Web.Controllers
     public class UserController : BaseController
     {
 
+        //GhostDoc 2019     
+        //Help View for Window 10 [https://www.microsoft.com/en-pk/download/details.aspx?id=21138]
+        /// <summary>
+        /// Logins the specified user name.
+        /// </summary>
+        /// <param name="userName">Name of the user.</param>
+        /// <param name="password">The password.</param>
+        /// <returns></returns>
         public ActionResult Login(string userName, string password)
         {
 
@@ -25,12 +33,26 @@ namespace iMarketPlace.Web.Controllers
             return Json("Failed", JsonRequestBehavior.AllowGet);
         }
 
+
+
+
+        //SignalR [Installation]
+        //Nuget Package
+        //Add Depedency(JS [jQuery])
+
+        //Configuration
+        //StartUp (OWIN)
+        //Hub (C# Class Inherit Hub)
+            //Methods
+        //Add Client Dependencies
+        //Connection Establishment
         public ActionResult Profile()
         {
             var user = GetSession<UserSessionInfo>(USER_SESSION);
             if (user != null)
             {
                 ViewBag.Advertisements = _advertisementService.GetSellerAds(user.Id);
+                ViewBag.UserName = user.Name;
                 return View();
             }
             return RedirectToAction("Index", "Home");

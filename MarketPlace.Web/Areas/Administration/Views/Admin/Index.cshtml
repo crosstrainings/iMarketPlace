@@ -55,40 +55,8 @@
     <div class="col-lg-2">
         <div class="panel panel-default">
             <div class="panel-heading">Active Users</div>
-            <div class="panel-body" style="height: 300px">
-                @*@{
-
-                    List<SellerProfile> users = (List<SellerProfile>)ViewBag.ActiveUsers;
-                }
-                @if (users != null)
-                {
-                    foreach (var user in users)
-                    {
-                        <div class="row" style="background:lightgray;margin-top:1px">
-                            <img src="@user.ProfileImage.FolderPath.Replace('~',' ')@user.ProfileImage.ImageName" class="img-circle" height="30" width="30" style="border: 1px solid lightgray" />
-                            <a style="text-decoration: none; font-weight: bold; color: gray">
-                                @user.UserName
-                            </a>
-
-
-
-                            <img src="/Content/Images/Icons/activeicon.png" style="height: 8px;width: 8px" />
-                        </div>
-
-                    }
-                }
-                else
-                {
-                    <i class="glyphicon glyphicon-user img-circle" height="30" width="30" style="border: 1px solid lightgray" />
-                    <a style="text-decoration: none; font-weight: bold; color: gray">
-                        no active users
-                    </a>
-
-
-
-
-                }*@
-
+            <div class="panel-body active-user-area" style="height: 300px">
+               
 
             </div>
         </div>

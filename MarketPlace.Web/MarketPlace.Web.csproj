@@ -54,14 +54,33 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.4.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -151,6 +170,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -162,6 +182,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DropDownModel.cs" />
+    <Compile Include="Models\Hubs\AdminHub.cs" />
+    <Compile Include="Models\Hubs\MyHub.cs" />
     <Compile Include="Models\Translators\TranslatorHelper.cs" />
     <Compile Include="Models\UserSessionInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -192,6 +214,33 @@
     <Content Include="Content\Admin\vendors\animate.css\animate.css" />
     <Content Include="Content\Admin\vendors\animate.css\animate.min.css" />
     <Content Include="Content\Admin\vendors\animate.css\gulpfile.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="Content\Admin\vendors\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="Content\Admin\vendors\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="Content\Admin\vendors\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="Content\Admin\vendors\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Admin\vendors\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\dist\js\npm.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Admin\vendors\bootstrap\Gruntfile.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\grunt\bs-commonjs-generator.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\grunt\bs-glyphicons-data-generator.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\grunt\bs-lessdoc-parser.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\grunt\bs-raw-files-generator.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\js\affix.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\js\alert.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\js\button.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\js\carousel.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\js\collapse.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\js\dropdown.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\js\modal.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\js\popover.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\js\scrollspy.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\js\tab.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\js\tooltip.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\js\transition.js" />
+    <Content Include="Content\Admin\vendors\bootstrap\package.js" />
     <Content Include="Content\Admin\vendors\fastclick\lib\fastclick.js" />
     <Content Include="Content\Admin\vendors\font-awesome\.gitignore" />
     <Content Include="Content\Admin\vendors\font-awesome\css\font-awesome.css" />
@@ -369,6 +418,8 @@
     <Content Include="Scripts\app-theme.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.1.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -519,6 +570,110 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Administration\Views\Admin\AllAdverts.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_AdvertisementListView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Admin\vendors\bootstrap\.bower.json" />
+    <Content Include="Content\Admin\vendors\bootstrap\bower.json" />
+    <Content Include="Content\Admin\vendors\bootstrap\CHANGELOG.md" />
+    <Content Include="Content\Admin\vendors\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <Content Include="Content\Admin\vendors\bootstrap\dist\css\bootstrap-theme.min.css.map" />
+    <Content Include="Content\Admin\vendors\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="Content\Admin\vendors\bootstrap\dist\css\bootstrap.min.css.map" />
+    <Content Include="Content\Admin\vendors\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Admin\vendors\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Admin\vendors\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Admin\vendors\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\Admin\vendors\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Admin\vendors\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Admin\vendors\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Admin\vendors\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\Admin\vendors\bootstrap\grunt\.jshintrc" />
+    <Content Include="Content\Admin\vendors\bootstrap\grunt\configBridge.json" />
+    <Content Include="Content\Admin\vendors\bootstrap\grunt\sauce_browsers.yml" />
+    <Content Include="Content\Admin\vendors\bootstrap\js\.jscsrc" />
+    <Content Include="Content\Admin\vendors\bootstrap\js\.jshintrc" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\.csscomb.json" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\.csslintrc" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\alerts.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\badges.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\bootstrap.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\breadcrumbs.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\button-groups.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\buttons.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\carousel.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\close.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\code.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\component-animations.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\dropdowns.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\forms.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\glyphicons.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\grid.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\input-groups.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\jumbotron.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\labels.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\list-group.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\media.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\alerts.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\background-variant.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\border-radius.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\buttons.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\center-block.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\clearfix.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\forms.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\gradients.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\grid-framework.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\grid.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\hide-text.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\image.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\labels.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\list-group.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\nav-divider.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\nav-vertical-align.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\opacity.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\pagination.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\panels.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\progress-bar.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\reset-filter.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\reset-text.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\resize.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\responsive-visibility.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\size.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\tab-focus.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\table-row.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\text-emphasis.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\text-overflow.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\mixins\vendor-prefixes.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\modals.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\navbar.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\navs.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\normalize.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\pager.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\pagination.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\panels.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\popovers.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\print.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\progress-bars.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\responsive-embed.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\responsive-utilities.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\scaffolding.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\tables.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\theme.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\thumbnails.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\tooltip.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\type.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\utilities.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\variables.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\less\wells.less" />
+    <Content Include="Content\Admin\vendors\bootstrap\LICENSE" />
+    <Content Include="Content\Admin\vendors\bootstrap\nuget\bootstrap.less.nuspec" />
+    <Content Include="Content\Admin\vendors\bootstrap\nuget\bootstrap.nuspec" />
+    <Content Include="Content\Admin\vendors\bootstrap\nuget\MyGet.ps1" />
+    <Content Include="Content\Admin\vendors\bootstrap\package.json" />
+    <Content Include="Content\Admin\vendors\bootstrap\README.md" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

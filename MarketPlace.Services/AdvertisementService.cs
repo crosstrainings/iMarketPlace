@@ -15,20 +15,17 @@ namespace iMarketPlace.Services
 
         public bool Add(Advertisement advertisement)
         {
-            try
-            {
-                _advertisementRepository.Add(advertisement);
-                return true;
-            }
-            catch(Exception ex)
-            {
-                return false;
-            }
+            _advertisementRepository.Add(advertisement);
+            return true;
         }
 
         public List<Advertisement> Get()
         {
             return (List<Advertisement>)_advertisementRepository.Get();
+        }
+        public Advertisement GetByCode(string code)
+        {
+            return _advertisementRepository.Get(code);
         }
         public List<Advertisement> GetSellerAds(int userId)
         {

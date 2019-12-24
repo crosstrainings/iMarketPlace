@@ -70,6 +70,8 @@
     <!-- Custom Theme Scripts -->
     <script src="@Url.Content("~/Content/Admin/build/js/custom.min.js")"></script>
     @RenderSection("Script", false)
+    <script src="~/Scripts/jquery.signalR-2.4.1.min.js"></script>
+    <script src="/signalR/js"></script>
     <script>
         $(".AdmFunc").click(function () {
             $.ajax({
@@ -80,6 +82,16 @@
                 }
             });
         });
+
+        $(function () {
+            var adminHub = $.connection.adminHub;
+            $.connection.hub.start();
+            adminHub.client.AddActiveUser = function (userName) {
+                var tempTag = `<div class='row'>${userName}</div>`
+                $('.active-user-area').append(tempTag);
+            };
+        });
+
     </script>
 </body>
 </html>

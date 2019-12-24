@@ -22,38 +22,35 @@ namespace MarketPlace.Repositories
         public void Add(Advertisement advertisement)
         {
             context.Advertisements.Add(advertisement);
-            context.Entry(advertisement.Category).State = EntityState.Unchanged;
             Save();
         }
 
         public IList<Advertisement> Get()
         {
-            return context.Advertisements.ToList();
+            return context.Advertisements.OrderByDescending(x => x.Id).ToList();
+        }
+        public Advertisement Get(string code)
+        {
+            Advertisement advertisement = null;
+            advertisement = (from ad in context.Advertisements
+                             where ad.Detail.ItemCode.Equals(code)
+                             select ad).FirstOrDefault();
+            return advertisement;
         }
         public Advertisement Get(int id)
         {
-            // Query Over Collections
-            /*
-             * - LINQ QUERIES
-             * - LINQ EXTENSION METHODS
-             */
-
             Advertisement advertisement = null;
-            //LINQ QUERY
-            advertisement = (from ad in context.Advertisements 
-                             where ad.Id == id 
+            advertisement = (from ad in context.Advertisements
+                             where ad.Id == id
                              select ad).FirstOrDefault();
-
-            //LINQ EXTENSION 
-            //advertisement = context.Advertisements.FirstOrDefault(x => x.Id == id);
             return advertisement;
-        } 
-        
+        }
+
         public IList<Advertisement> GetSellerAds(int userId)
-        { 
-              return (from ad in context.Advertisements 
-                             where ad.SellerId == userId 
-                             select ad).ToList();
+        {
+            return (from ad in context.Advertisements
+                    where ad.SellerId == userId
+                    select ad).ToList();
         }
 
     }

@@ -19,11 +19,20 @@
         </div>
         <div class="row">
             <h3 class="center-block text-center">
-                $@Model.Price
+                Rs.@Model.Price.ToString("00")
             </h3>
         </div>
         <div class="row">
-            <span class="center-block text-center" style="font-weight: bold;font-size: 16px;color: #777;">@Model.Title</span>
+            <span class="center-block text-center" style="font-weight: bold;font-size: 16px;color: #777;" title="@Model.Title">
+                @if (Model.Title.Length > 35)
+                {
+                    <span>@Model.Title.Substring(0, 35)</span>
+                }
+                else
+                {
+                    <span>@Model.Title</span>
+                }
+            </span>
         </div>
         <br />
         <div class="row" style="background: #f5f5f5a1;">

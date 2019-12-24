@@ -50,8 +50,8 @@
                                 <a href="#">
                                     <span class="glyphicon glyphicon-user">
                                     </span>
-                                    <span>
-                                        irshad ahmed
+                                    <span class="profile-user-name">
+                                       @ViewBag.UserName
                                     </span>
                                 </a>
                             </li>
@@ -171,7 +171,7 @@
                                         categoryOptions.Add(item5);
                                     }
 
-                                    @Html.DropDownListFor(x => x.Category.Id, categoryOptions, new { @class = "form-control" })
+                                    @Html.DropDownListFor(x => x.CategoryId, categoryOptions, new { @class = "form-control" })
                                     @*<select name="category" class="form-control" id="app-ad-categories">
                                             <option value="1">Vehicles</option>
                                             <option selected value="2">Electronics</option>
@@ -194,6 +194,26 @@
             </div>
         </div>
     </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.4.1.min.js"></script>
+    <script src="/signalR/js"></script>
+    <script>
 
+        //Create Hub
+        var adminHub = $.connection.adminHub;
+        //Start Connection
+        $.connection.hub.start().done(function () {
+            //Calling Server Function
+            var userName = $(".profile-user-name").html();
+            adminHub.server.userLogedIn(userName);
+        });
+
+        //Reciving Client Function
+        //myHub.client.SayWelcome = function (dateTime) {
+        //    alert("Wellcome User at"+dateTime)
+        //};
+
+
+    </script>
 </body>
 </html>
