@@ -23,6 +23,17 @@ namespace MarketPlace.Services.Translators
             return vmData;
         }
         
+        public static List<CountryViewModel> Translate(this List<Country> countries)
+        {
+            List<CountryViewModel> vmData = countries.Select(item => new CountryViewModel()
+            {
+                Code = item.Code,
+                Id = item.Id,
+                Name = item.Name
+            }).ToList();
+            return vmData;
+        }
+        
 
     }
 }

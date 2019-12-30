@@ -31,6 +31,10 @@ namespace iMarketPlace.Services
                                                            .Translate();
             return data;
         }
+        public IList<CountryViewModel> GetCountries()
+        {
+            return _locationRespository.GetCountries().ToList().Translate();
+        }
 
     }
 }
