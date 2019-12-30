@@ -43,12 +43,12 @@
 
 </head>
 <body>
-    @Html.Partial("_HeaderPartialView")
+    @Html.Partial("_ActionMenu")
     <!-- page content -->
     <div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12" style="height: 150px;">
-                <div class="col-md-offset-2 col-md-10" id="AdminMainPanel">
+                <div class="col-md-offset-2 col-md-10 admin-action-result" id="AdminMainPanel">
                     @RenderBody()
 
                 </div>
@@ -66,7 +66,8 @@
     <script src="@Url.Content("~/Content/Admin/vendors/fastclick/lib/fastclick.js")"></script>
     <!-- NProgress -->
     <script src="@Url.Content("~/Content/Admin/vendors/nprogress/nprogress.js")"></script>
-
+    <script src="~/Scripts/app-ajax.js"></script>
+    <script src="~/Scripts/Admin/admin-actions.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="@Url.Content("~/Content/Admin/build/js/custom.min.js")"></script>
     @RenderSection("Script", false)

@@ -172,7 +172,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\ActionController.cs" />
+    <Compile Include="Areas\Administration\Controllers\AdminBaseController.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Administration\Controllers\AuthController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CityController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CountryController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
@@ -409,7 +414,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\Admin\admin-actions.js" />
     <Content Include="Scripts\app-add-product.js" />
+    <Content Include="Scripts\app-ajax.js" />
     <Content Include="Scripts\app-fetch-products.js" />
     <Content Include="Scripts\app-fetch-user-products.js" />
     <Content Include="Scripts\app-filter-main-products.js" />
@@ -440,6 +447,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Administration\Models\" />
+    <Folder Include="Areas\Administration\Views\Action\" />
     <Folder Include="Views\Location\" />
     <Folder Include="Views\Product\" />
   </ItemGroup>
@@ -563,7 +571,7 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Administration\Views\Shared\_HeaderPartialView.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\_ActionMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
@@ -674,6 +682,12 @@
     <Content Include="Content\Admin\vendors\bootstrap\nuget\MyGet.ps1" />
     <Content Include="Content\Admin\vendors\bootstrap\package.json" />
     <Content Include="Content\Admin\vendors\bootstrap\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\City\_Cities.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Country\_Countries.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
