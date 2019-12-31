@@ -53,5 +53,29 @@ namespace MarketPlace.Repositories
                     select ad).ToList();
         }
 
+        public List<Category> GetAllCategories()
+        {
+            return context.Categories.OrderByDescending(x => x.Id).ToList();
+        }
+        public List<SubCategory> GetAllSubCategories()
+        {
+            return context.SubCategories.OrderByDescending(x => x.Id).ToList();
+        }
+
+
+        public void Delete(Advertisement adver)
+        {
+            var obj = context.Advertisements.Find(adver.Id);
+            context.Advertisements.Remove(obj);
+            context.SaveChanges();
+        }
+
+
+        public void UpdateAdvertisement(Advertisement advertisement)
+        {
+            context.Entry(advertisement).State = EntityState.Modified;
+            context.SaveChanges();
+        }
+
     }
 }
