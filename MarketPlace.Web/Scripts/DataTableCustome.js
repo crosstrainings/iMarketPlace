@@ -1,19 +1,8 @@
 ﻿  $(document).ready(function () {
-       $('#dt').dataTable();
-});
-
-//$(document).ready(function () {
-//    $('#dtable').dataTable({
-//        "ajax": {
-//            "url": "/Doctor/AjaxDataTable",
-//            "type": "Get",
-//            "datatype": "json"
-//        },
-//        "columns": [
-//            { "data": "Name" },
-//            { "data": "PhoneNumber" },
-//            { "data": "Email" }
-//        ]
-//    });
-
-//});
+      $('#dt').dataTable({
+          'columnDefs': [{
+              'targets': [5,6,7], /* column index */
+              'orderable': false, /* true or false */
+          }]
+      });
+}); 
