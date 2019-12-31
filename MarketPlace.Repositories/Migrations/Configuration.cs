@@ -1,6 +1,5 @@
 namespace MarketPlace.Repositories.Migrations
 {
-    using MarketPlace.Entities.Advertisements;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -20,23 +19,13 @@ namespace MarketPlace.Repositories.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
-
-            if (!context.SubCategories.Any())
-            {
-                context.SubCategories.AddOrUpdate(
-                  p => p.Id,
-                  new SubCategory() { Name = "Temp", Id = 1 }
-                );
-                context.Categories.AddOrUpdate(
-                p => p.Id,
-                new Category() { Id = 1, Name = "Vehicle", CreatedOn = DateTime.Now, SubCategoryId = 1 },
-                new Category() { Id = 2, Name = "Electronics", CreatedOn = DateTime.Now, SubCategoryId = 1 },
-                new Category() { Id = 3, Name = "Sports", CreatedOn = DateTime.Now, SubCategoryId = 1 },
-                new Category() { Id = 4, Name = "Fitness", CreatedOn = DateTime.Now, SubCategoryId = 1 },
-                new Category() { Id = 5, Name = "Clothes", CreatedOn = DateTime.Now, SubCategoryId = 1 }
-
-              );
-            }
+            //    context.People.AddOrUpdate(
+            //      p => p.FullName,
+            //      new Person { FullName = "Andrew Peters" },
+            //      new Person { FullName = "Brice Lambson" },
+            //      new Person { FullName = "Rowan Miller" }
+            //    );
+            //
         }
     }
 }
