@@ -6,75 +6,7 @@
     <link href="~/content/styles/footer.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
-                            <span class="glyphicon glyphicon-menu-hamburger"></span>
-                        </button>
-                        <div class="navbar-brand">
-                            <span class="text-info" style="font-weight: bold">
-                                i
-                                <span class="glyphicon glyphicon-tasks" style="transform: rotate(90deg);"></span>
-                                arketplace
-                            </span>
-                        </div>
-                    </div>
-                    <div class="collapse navbar-collapse" id="mynavbar">
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <a href="#">
-                                    Featured <span class="label label-danger">new</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">New</a>
-                            </li>
-                            <li>
-                                <a href="#">Trending</a>
-                            </li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            @if (ViewBag.UserInfo != null)
-                            {
-                                <li>
-                                    <a href="#">@ViewBag.UserInfo.Name</a>
-                                </li>
-                                <li>
-                                    <a href="/User/Logout">Logout</a>
-                                </li>
-                            }
-                            else
-                            {
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#register-modal">Register</a>
-                                </li>
-                            }
-
-                            <li class="dropdown">
-                                <a href="#" data-toggle="dropdown">
-                                    <span class="glyphicon glyphicon-globe"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="theme-option" id="default"><a href="#">default</a></li>
-                                    <li class="theme-option" id="flat"><a href="#">flat</a></li>
-                                    <li class="theme-option" id="gradient"><a href="#">gradient</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /.nav-area -->
-        @RenderBody()
-    </div><!-- /.container-fluid -->
-
+    @RenderBody()
     @RenderPage("../Shared/_Footer.cshtml")
     <script src="~/Scripts/jquery-2.2.3.min.js"></script>
     <script src="~/scripts/bootstrap.js"></script>
