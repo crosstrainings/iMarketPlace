@@ -815,7 +815,7 @@
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Administration\Views\Admin\AllAdverts.cshtml" />
+    <Content Include="Areas\Administration\Views\Admin\_AllAdverts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_AdvertisementListView.cshtml" />
@@ -931,7 +931,7 @@
     <Content Include="Areas\Administration\Views\Country\_Countries.cshtml" />
   </ItemGroup>
   <ItemGroup>
-      <Content Include="Content\DataTables\css\mixins.scss" />
+    <Content Include="Content\DataTables\css\mixins.scss" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\DataTables\css\common.scss" />
@@ -940,7 +940,7 @@
     <Content Include="Areas\Administration\Views\Admin\ListOfAdver.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Administration\Views\Admin\ListOfCategory.cshtml" />
+    <Content Include="Areas\Administration\Views\Admin\_Categories.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Administration\Views\Admin\ListOfSubCategory.cshtml" />
@@ -950,6 +950,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Administration\Views\Admin\DeleteAdvertisement.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Shared\_DataTableScripts.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Shared\_DataTableStyles.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -48,14 +48,14 @@ namespace iMarketPlace.Web.Areas.Administration.Controllers
         {
             var advertisements = _advertisementService.Get();
 
-            return View(advertisements);
+            return PartialView("_AllAdverts", advertisements);
         }
 
         public ActionResult ListOfCategory()
         {
             var category= _advertisementService.GetAllCategories();
 
-            return View(category);
+            return PartialView("_Categories",category);
         }
         public ActionResult ListOfSubCategory()
         {
