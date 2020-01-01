@@ -695,7 +695,6 @@
     <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\Views\Action\" />
     <Folder Include="Views\Location\" />
-    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -970,7 +969,7 @@
     <Content Include="Areas\Administration\Views\Shared\_DataTableStyles.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_ProductDetails.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -44,10 +44,11 @@ namespace iMarketPlace.Web.Controllers
             return Json(new { view, advertisements.Count }, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult ProductDetails()
+        [HttpGet]
+        public ActionResult Detail(int id)
         {
-           var productDetails= _advertisementService.Get();
-            return View();
+            var advertisement = _advertisementService.Get(id);
+            return View(advertisement);
         }
     }
 }
