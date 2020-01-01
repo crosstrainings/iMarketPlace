@@ -573,6 +573,7 @@
     <Content Include="Content\styles\bootstrap-theme.css" />
     <Content Include="Content\styles\bootstrap.css" />
     <Content Include="Content\styles\footer.css" />
+    <Content Include="Content\styles\ProductDetails.css" />
     <Content Include="Content\styles\registration-form.css" />
     <Content Include="Content\styles\themes\flat.css" />
     <Content Include="Content\styles\themes\gradient.css" />
@@ -967,6 +968,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Administration\Views\Shared\_DataTableStyles.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_ProductDetails.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
