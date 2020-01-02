@@ -12,5 +12,4 @@ jobs:
       uses: warrenbuckley/Setup-MSBuild@v1
     - name: MSBuild
       working-directory: iMarketPlace
-      run: msbuild $Env:GITHUB_WORKSPACE\iMarketPlace\MarketPlace.Web.csproj
-      
+      run: msbuild $Env:GITHUB_WORKSPACE\MarketPlace.Web\MarketPlace.Web.csproj
