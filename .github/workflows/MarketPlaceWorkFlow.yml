@@ -11,5 +11,5 @@ jobs:
     - name: Setup MSBuild.exe
       uses: warrenbuckley/Setup-MSBuild@v1
     - name: MSBuild
-      working-directory: iMarketPlace
-      run: echo ls
+      working-directory: src
+      run: msbuild MyProject.csproj
