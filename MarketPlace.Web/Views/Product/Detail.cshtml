@@ -1,66 +1,95 @@
 ﻿@using MarketPlace.Entities.Advertisements;
 @model Advertisement
 <link href="~/Content/styles/ProductDetails.css" rel="stylesheet" />
-<div class="container">
-    <div class="card">
-        <div class="container-fliud">
-            <div class="wrapper row">
-                <div class="preview col-md-6">
+<link href="~/Content/styles/Rating.css" rel="stylesheet" />
+<div class="backGround">
+    <div class="container">
+        <div class="card">
+            <div class="container-fliud">
+                <div class="wrapper row">
+                    <div class="preview col-md-6">
 
-                    <div class="preview-pic tab-content">
-                        <div class="tab-pane active" id="pic-1">
-                            <img src="@Url.Content(Model.Images.First().Url)" />
+                        <div class="preview-pic tab-content ">
+                            <div class="tab-pane active" id="pic-1">
+                                <img src="http://www.mega.pk/items_images/t_19154.png" />
+                            </div>
                         </div>
-                    </div>
-                    <ul class="preview-thumbnail nav nav-tabs">
-                        <li class="active">
-                            <a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a>
-                        </li>
-                        <li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                        <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                        <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                        <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                    </ul>
+                        <ul class="preview-thumbnail nav nav-tabs">
+                            <li class="active">
+                                <a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a>
+                            </li>
+                            <li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                            <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                            <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                            <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                        </ul>
 
-                </div>
-                <div class="details col-md-6">
-                    <h3 class="product-title">@Model.Title</h3>
-                    <div class="rating">
-                        <div class="stars">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <span class="review-no">41 reviews</span>
                     </div>
-                    <p class="product-description">@Model.Detail.Description</p>
-                    <h4 class="price">current price: <span>$@Model.Price</span></h4>
-                    <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
-                    <h5 class="sizes">
-                        sizes:
-                        <span class="size" data-toggle="tooltip" title="small">s</span>
-                        <span class="size" data-toggle="tooltip" title="medium">m</span>
-                        <span class="size" data-toggle="tooltip" title="large">l</span>
-                        <span class="size" data-toggle="tooltip" title="xtra large">xl</span>
-                    </h5>
-                    <h5 class="colors">
-                        colors:
-                        <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
-                        <span class="color green"></span>
-                        <span class="color blue"></span>
-                    </h5>
-                    <div class="action">
-                        <button class="add-to-cart btn btn-default" type="button">add to cart</button>
-                        <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+                    <div class="details col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="text-info">@Model.Title</h3>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h6 class="text-muted">Product Catagory</h6>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="price"><span>$@Model.Price</span></h4>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="rating">
+                                            <div class="stars">
+                                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                                <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                                <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="text-justify">Description:</h4>
+                        <p class="product-description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui dicta veniam, a exercitationem sapiente dolores rerum.
+                            Autem ipsum doloribus natus! Beatae inventore, hic accusantium tempore eius harum sit tenetur cumque.
+                        </p>
+
+
+                        <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+                        <h5 class="sizes">
+                            sizes:
+                            <span class="size" data-toggle="tooltip" title="small">s</span>
+                            <span class="size" data-toggle="tooltip" title="medium">m</span>
+                            <span class="size" data-toggle="tooltip" title="large">l</span>
+                            <span class="size" data-toggle="tooltip" title="xtra large">xl</span>
+                        </h5>
+                        <h5 class="colors">
+                            colors:
+                            <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
+                            <span class="color green"></span>
+                            <span class="color blue"></span>
+                        </h5>
+                        <div class="action">
+                            <button type="submit" class="btn" style="background:green;width: 200px; height: 40px; margin-left: 0px;color:white">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                Add to cart
+                            </button>
+                            <button class="like btn btn-default" type="button" style="background:orange;width: 70px; height: 40px; margin-left: 0px;color:white"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <br />
+    <br />
+    <br />
 </div>
-<br />
-<br />
-<br />
-

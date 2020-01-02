@@ -574,6 +574,7 @@
     <Content Include="Content\styles\bootstrap.css" />
     <Content Include="Content\styles\footer.css" />
     <Content Include="Content\styles\ProductDetails.css" />
+    <Content Include="Content\styles\Rating.css" />
     <Content Include="Content\styles\registration-form.css" />
     <Content Include="Content\styles\themes\flat.css" />
     <Content Include="Content\styles\themes\gradient.css" />
