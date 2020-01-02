@@ -10,4 +10,6 @@ jobs:
     steps:
     - name: Setup MSBuild.exe
       uses: warrenbuckley/Setup-MSBuild@v1
+    - name: Build With MSBuild
+      uses: msbuild iMarketPlace\iMarketPlace.sln
       
