@@ -56,6 +56,10 @@
     <Compile Include="Migrations\201912291758203_init.Designer.cs">
       <DependentUpon>201912291758203_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001011813533_revert-cart.cs" />
+    <Compile Include="Migrations\202001011813533_revert-cart.Designer.cs">
+      <DependentUpon>202001011813533_revert-cart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UserRepository.cs" />
     <Compile Include="SellerRepository.cs" />
@@ -77,6 +81,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201912291758203_init.resx">
       <DependentUpon>201912291758203_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001011813533_revert-cart.resx">
+      <DependentUpon>202001011813533_revert-cart.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

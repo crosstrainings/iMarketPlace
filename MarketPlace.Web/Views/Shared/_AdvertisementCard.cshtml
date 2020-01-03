@@ -10,6 +10,7 @@
 
 @using MarketPlace.Entities.Advertisements;
 @model Advertisement
+
 <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
     <div class="well well-default product-card">
         <div class="row" style="height: 190px;">
@@ -23,16 +24,18 @@
             </h3>
         </div>
         <div class="row">
-            <span class="center-block text-center" style="font-weight: bold;font-size: 16px;color: #777;" title="@Model.Title">
-                @if (Model.Title.Length > 35)
-                {
-                    <span>@Model.Title.Substring(0, 35)</span>
-                }
-                else
-                {
-                    <span>@Model.Title</span>
-                }
-            </span>
+            <a href="/Product/Detail/@Model.Id">
+                <span class="center-block text-center" style="font-weight: bold;font-size: 16px;color: #777;" title="@Model.Title">
+                    @if (Model.Title.Length > 35)
+                    {
+                        <span>@Model.Title.Substring(0, 35)</span>
+                    }
+                    else
+                    {
+                        <span>@Model.Title</span>
+                    }
+                </span>
+            </a>
         </div>
         <br />
         <div class="row" style="background: #f5f5f5a1;">

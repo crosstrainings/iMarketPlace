@@ -43,5 +43,12 @@ namespace iMarketPlace.Web.Controllers
             var view = ConvertViewToString("_AdvertisementListView", advertisements);
             return Json(new { view, advertisements.Count }, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet]
+        public ActionResult Detail(int id)
+        {
+            var advertisement = _advertisementService.Get(id);
+            return View(advertisement);
+        }
     }
 }
