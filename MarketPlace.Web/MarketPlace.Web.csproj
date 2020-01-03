@@ -695,6 +695,7 @@
   <ItemGroup>
     <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\Views\Action\" />
+    <Folder Include="Areas\Administration\Views\Default\" />
     <Folder Include="Views\Location\" />
   </ItemGroup>
   <ItemGroup>

@@ -4,8 +4,20 @@
 <link href="~/Content/styles/Rating.css" rel="stylesheet" />
 <div class="backGround">
     <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+          
+            </div>
+            <div class="col-md-3">
+                <button type="submit" class="btn" style="background:green;width: 180px; height: 40px; margin-left: 0px;color:white">
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                    My Cart 
+                </button><label class="label label-danger">4</label>
+            </div>
+        </div>
         <div class="card">
             <div class="container-fliud">
+
                 <div class="wrapper row">
                     <div class="preview col-md-6">
 
@@ -58,6 +70,7 @@
                         </div>
                         <h4 class="text-justify">Description:</h4>
                         <p class="product-description">
+                            @Model.Detail
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui dicta veniam, a exercitationem sapiente dolores rerum.
                             Autem ipsum doloribus natus! Beatae inventore, hic accusantium tempore eius harum sit tenetur cumque.
                         </p>
