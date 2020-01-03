@@ -16,29 +16,29 @@ namespace MarketPlace.Services.Orders
         {
             _cartRepository = new CartRepository();
         }
-        public bool Add(CartViewModel cartVM)
+        public bool Add(CartAddViewModel cartAddVm)
         {
             var cart = new Cart()
             {
-                BuyerId = cartVM.BuyerId,
-                AdvertisementId = cartVM.AdvertisementId,
+                BuyerId = cartAddVm.BuyerId,
+                AdvertisementId = cartAddVm.AdvertisementId,
                 CartDetail = new CartDetail()
                 {
                     CreatedOn = DateTime.Now,
                     ModifiedOn = DateTime.Now,
-                    Quantity = cartVM.Quantity,
-                    TotalAmount = cartVM.TotalAmount
+                    Quantity = cartAddVm.Quantity,
+                    TotalAmount = cartAddVm.TotalAmount
                 }
             };
             _cartRepository.Add(cart);
             return true;
         }
 
-        public List<CartViewModel> Get()
+        public List<CartAddViewModel> Get()
         {
             var cartItems = (List<Cart>)_cartRepository.Get();
-            var carts = new List<CartViewModel>();
-            carts.AddRange(cartItems.Select(x => new CartViewModel()
+            var carts = new List<CartAddViewModel>();
+            carts.AddRange(cartItems.Select(x => new CartAddViewModel()
             {
                 AdvertisementId = x.AdvertisementId,
                 BuyerId = x.BuyerId,
@@ -50,17 +50,16 @@ namespace MarketPlace.Services.Orders
             return carts;
         }
         
-        public List<CartViewModel> GetUserCartItems(int buyerId)
+        public List<CartSummaryViewModel> GetUserCartItems(int buyerId)
         {
             var cartItems = (List<Cart>)_cartRepository.Get(buyerId);
-            var carts = new List<CartViewModel>();
-            carts.AddRange(cartItems.Select(x => new CartViewModel()
+            var carts = new List<CartSummaryViewModel>();
+            carts.AddRange(cartItems.Select(x => new CartSummaryViewModel()
             {
-                AdvertisementId = x.AdvertisementId,
-                BuyerId = x.BuyerId,
-                Id= x.Id,
-                Quantity= x.CartDetail.Quantity,
-                TotalAmount= x.CartDetail.TotalAmount
+                Id = x.Id,
+                Title = x.Advertisement.Title,
+                Thumbnail= x.Advertisement.Images.First().Url,
+                Price= x.Advertisement.Price
 
             }));
             return carts;

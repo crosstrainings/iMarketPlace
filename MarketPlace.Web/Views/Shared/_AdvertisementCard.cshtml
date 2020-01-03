@@ -6,6 +6,10 @@
         font-size: 24px;
         font-weight: bold;
     }
+
+    .add-to-cart-btn {
+        cursor: pointer;
+    }
 </style>
 
 @using MarketPlace.Entities.Advertisements;
@@ -40,13 +44,13 @@
         <br />
         <div class="row" style="background: #f5f5f5a1;">
             <div class="col-lg-5" style="padding-left:7px">
-                <span >
+                <span class="add-to-cart-btn" id="@Model.Id">
                     <span class="glyphicon glyphicon-shopping-cart"></span>
                     <span style="font-size:10px">add to cart</span>
                 </span>
             </div>
             <div class="col-lg-5" style="padding:0">
-                <span onclick="onFavoriteButtonClick()" onmouseover="onFavoriteButtonMouseOver()" id="fav-btn">
+                <span id="fav-btn">
                     <span class="glyphicon glyphicon-heart-empty"></span>
                     <span style="font-size:10px">add to wishlist</span>
                 </span>

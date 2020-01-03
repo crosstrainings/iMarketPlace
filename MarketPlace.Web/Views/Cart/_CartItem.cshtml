@@ -1,5 +1,6 @@
 ﻿@using MarketPlace.ViewModels.Orders
-@model List<CartViewModel>
+@model List<CartSummaryViewModel>
+
 @if (Model != null && Model.Count > 0)
 {
     foreach (var item in Model)
@@ -7,10 +8,17 @@
         <li>
             <span class="item">
                 <span class="item-left">
-                    <img src="http://lorempixel.com/50/50/" alt="" />
+                    <img src="@Url.Content(item.Thumbnail)" height="50" width="50" />
                     <span class="item-info">
-                        <span>Item name</span>
-                        <span>23$</span>
+                        @if (item.Title.Length > 10)
+                        {
+                            <span>@item.Title.Substring(0, 10)</span>
+                        }
+                        else
+                        {
+                            <span>@item.Title</span>
+                        }
+                        <span>@item.Price</span>
                     </span>
                 </span>
                 <span class="item-right">

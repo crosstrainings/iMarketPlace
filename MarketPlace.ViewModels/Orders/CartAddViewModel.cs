@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarketPlace.ViewModels.Orders
 {
-    public class CartViewModel
+    public class CartAddViewModel
     {
         public int Id { get; set; }
         public int AdvertisementId { get; set; }

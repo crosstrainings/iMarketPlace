@@ -27,7 +27,7 @@ namespace MarketPlace.Repositories.Orders
         }
         public IList<Cart> Get(int buyerId)
         {
-            return context.Carts.Where(x => x.BuyerId == buyerId).OrderByDescending(x => x.Id).ToList();
+            return context.Carts.Where(x => x.BuyerId == buyerId).OrderByDescending(x => x.Id).Take(6).ToList();
         }
 
     }
