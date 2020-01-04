@@ -74,7 +74,7 @@ namespace MarketPlace.Crawler.Daraz
                                 CreatedOn = DateTime.Now,
                                 ExpiredOn= DateTime.Now
                             },
-                            CategoryId = 7
+                            CategoryId = 2
 
                         };
                         _advertisementService.Add(advert);

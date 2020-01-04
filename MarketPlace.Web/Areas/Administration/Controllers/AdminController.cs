@@ -91,6 +91,11 @@ namespace iMarketPlace.Web.Areas.Administration.Controllers
 
             return RedirectToAction("ListOfAdver");
         }
+        public ActionResult Detail(int id)
+        {
+            var advertisement = _advertisementService.Get(id);
+            return View(advertisement);
+        }
 
     }
 }
