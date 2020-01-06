@@ -186,8 +186,10 @@
     <Compile Include="Areas\Administration\Controllers\AdminBaseController.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
     <Compile Include="Areas\Administration\Controllers\AuthController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Administration\Controllers\CityController.cs" />
     <Compile Include="Areas\Administration\Controllers\CountryController.cs" />
+    <Compile Include="Areas\Administration\Controllers\SubCategoryController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
@@ -679,6 +681,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery.signalR-2.4.1.js" />
     <Content Include="Scripts\jquery.signalR-2.4.1.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -958,10 +962,10 @@
     <Content Include="Areas\Administration\Views\Admin\ListOfAdver.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Administration\Views\Admin\_Categories.cshtml" />
+    <Content Include="Areas\Administration\Views\Category\_Categories.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Administration\Views\Admin\ListOfSubCategory.cshtml" />
+    <Content Include="Areas\Administration\Views\SubCategory\ListOfSubCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Administration\Views\Admin\AdertisementDetails.cshtml" />
@@ -986,6 +990,30 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Category\_AddCategory.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\City\Add.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Country\_Add.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Category\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Category\Update.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Country\Update.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Country\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Country\Delete.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

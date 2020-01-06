@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Add Country";
+}
+<div class="container">
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/Admin/admin-actions.js"></script>
+    @using (Ajax.BeginForm("Add", "Country", null, new AjaxOptions() { HttpMethod = "Post", OnSuccess = "Pass(view);" }, new { @class = "form-horizontal form-heading " }))
+    {
+
+        <div class="col-md-offset-3 col-md-6" style="background-color:#e2e1e1">
+            <h4>Add Country</h4>
+
+            <div class="form-group">
+                <div class="input-group-text">
+                    <input type="text" placeholder="Enter Country" class="form-control" name="name" />
+                    @* @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Your Email" } })*@
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="input-group-btn">
+                    <input value="Add" type="submit" class="btn btn-success">
+                </div>
+            </div>
+            <div>
+                <a href="#" class="admin-action" data-area="Administration" data-controller="Country" data-action="Index">Back to List</a>
+
+                <br />
+                <br />
+
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+    function Pass(view) {
+        alert(view)
+    }
+</script>

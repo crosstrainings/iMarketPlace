@@ -1,17 +1,20 @@
-﻿@model IEnumerable<MarketPlace.Entities.Advertisements.Category>
-@Html.Partial("_DataTableStyles")
+﻿@model IEnumerable<MarketPlace.ViewModels.Admin.SubCategory.SubCategoryViewModel>
+
+@{
+    ViewBag.Title = "ListOfSubCategory";
+}
+
+<h2>ListOfSubCategory</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table table-bordered table-hover" id="dt">
     <thead class="bg-primary">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
-            @*<th>
-                    @Html.DisplayNameFor(model => model.CreatedOn)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SubCategoryId)
-                </th>*@
             <th>Action</th>
         </tr>
     </thead>
@@ -22,12 +25,6 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.CreatedOn)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SubCategoryId)
-                    </td>*@
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                     @Html.ActionLink("Details", "Details", new { id = item.Id }) |
@@ -37,4 +34,3 @@
         }
     </tbody>
 </table>
-@Html.Partial("_DataTableScripts")

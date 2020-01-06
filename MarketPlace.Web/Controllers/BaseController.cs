@@ -1,4 +1,6 @@
 ﻿using iMarketPlace.Services;
+using MarketPlace.Repositories;
+using MarketPlace.Services;
 using System.IO;
 using System.Web.Mvc;
 using iMarketPlace.Web.Models;
@@ -12,6 +14,9 @@ namespace iMarketPlace.Web.Controllers
         protected readonly BuyerService _buyerService;
         protected readonly LocationService _locationService;
         protected readonly UserService _userService;
+        protected readonly CategoryService _categoryService;
+        protected readonly SubCategoryService _subCategoryService;
+
         protected const string USER_SESSION = "User";
         protected int UserId;
 
@@ -23,6 +28,8 @@ namespace iMarketPlace.Web.Controllers
             _locationService = new LocationService();
             _userService = new UserService();
             UserId = GetSession<UserSessionInfo>(USER_SESSION)?.Id ?? 0;
+            _categoryService = new CategoryService();
+            _subCategoryService = new SubCategoryService();
         }
         public void AddSession(string key, object value)
         {

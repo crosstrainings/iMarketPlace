@@ -1,4 +1,4 @@
-﻿namespace MarketPlace.ViewModels.Admin
+﻿namespace MarketPlace.ViewModels.Admin.Advertisement
 {
     public class AdvertisementViewModel
     {

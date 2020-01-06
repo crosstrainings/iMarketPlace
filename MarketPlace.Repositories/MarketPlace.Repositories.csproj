@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryRepository.cs" />
     <Compile Include="LocationRespository.cs" />
     <Compile Include="Migrations\201912291758203_init.cs" />
     <Compile Include="Migrations\201912291758203_init.Designer.cs">
@@ -62,6 +63,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Orders\CartRepository.cs" />
+    <Compile Include="SubCategories\SubCategoryRepository.cs" />
     <Compile Include="UserRepository.cs" />
     <Compile Include="SellerRepository.cs" />
     <Compile Include="BuyerRepository.cs" />
