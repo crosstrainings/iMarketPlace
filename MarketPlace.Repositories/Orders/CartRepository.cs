@@ -27,7 +27,16 @@ namespace MarketPlace.Repositories.Orders
         }
         public IList<Cart> Get(int buyerId)
         {
-            return context.Carts.Where(x => x.BuyerId == buyerId).OrderByDescending(x => x.Id).Take(6).ToList();
+            return GetAll(buyerId).Take(6).ToList();
+        }
+
+        public IList<Cart> GetAll(int buyerId)
+        {
+            return context.Carts.Where(x => x.BuyerId == buyerId).OrderByDescending(x => x.Id).ToList();
+        }
+        public int GetCount(int buyerId)
+        {
+            return GetAll(buyerId).Count();
         }
 
     }

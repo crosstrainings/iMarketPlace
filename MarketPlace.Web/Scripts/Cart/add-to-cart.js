@@ -1,25 +1,31 @@
 ﻿var cartItemsCountArea = ".cart-item-count-area";
+var cartSummaryToggleBtn = ".cart-summary-toggle-btn";
 $(function () {
     $(".add-to-cart-btn").click(function () {
         var advertId = $(this).attr("id");
         var url = `Cart/Add/${advertId}`;
         asyncAction(url, "get", (added) => {
-            if (added) {
+            if (added === true) {
                 var cartCount = parseInt($(cartItemsCountArea).html());
                 $(cartItemsCountArea).html(++cartCount);
             }
         }, () => { });
     });
     $(".cart-summary-toggle-btn").click((event) => {
-        var summaryView = "summary-view"; 
         event.preventDefault();
-        var inView = $(this).data(summaryView);
+        var summaryView = "summary-view";
+        var inView = $(cartSummaryToggleBtn).data(summaryView);
+        var display = inView;
         if (inView === 0) {
-            loadUserCartSummary();
-            $(this).data(summaryView, 1);
+            display = 1;
         } else {
-            $(this).data(summaryView, 0);
+            display = 0;
         }
+        if (display === 1) {
+            loadUserCartSummary();
+            display = 0;
+        }
+        $(cartSummaryToggleBtn).data(summaryView, display);
     });
 });
 function loadUserCartSummary() {
@@ -28,7 +34,7 @@ function loadUserCartSummary() {
         var area = ".user-cart-summary-area";
         var areaFooter = `<li class="divider"></li><li><a class="text-center" href="">View Cart</a></li>`;
         var result = summary.view + areaFooter;
-        $(cartItemsCountArea).html(summary.Count);
+        $(cartItemsCountArea).html(summary.Total);
         $(area).html(result);
     }, () => { });
 }

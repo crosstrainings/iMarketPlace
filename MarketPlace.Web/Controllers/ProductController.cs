@@ -40,6 +40,8 @@ namespace iMarketPlace.Web.Controllers
         public ActionResult Load(int skip = 0, int take = 10)
         {
             var advertisements = _advertisementService.Get().Skip(skip).Take(take).ToList();
+            var user = GetSession<UserSessionInfo>(USER_SESSION);
+            ViewBag.LoggedIn = user == null;
             var view = ConvertViewToString("_AdvertisementListView", advertisements);
             return Json(new { view, advertisements.Count }, JsonRequestBehavior.AllowGet);
         }

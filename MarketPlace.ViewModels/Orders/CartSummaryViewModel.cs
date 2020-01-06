@@ -1,5 +1,13 @@
-﻿namespace MarketPlace.ViewModels.Orders
+﻿using System.Collections;
+using System.Collections.Generic;
+
+namespace MarketPlace.ViewModels.Orders
 {
+    public class CartSummaryHolderViewModel
+    {
+        public IEnumerable<CartSummaryViewModel> OverViewItems  { get; set; }
+        public int Total { get; set; }
+    }
    public class CartSummaryViewModel
     {
         public int Id { get; set; }

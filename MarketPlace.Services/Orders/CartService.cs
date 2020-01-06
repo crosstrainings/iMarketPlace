@@ -50,9 +50,11 @@ namespace MarketPlace.Services.Orders
             return carts;
         }
         
-        public List<CartSummaryViewModel> GetUserCartItems(int buyerId)
+        public CartSummaryHolderViewModel GetUserCartItems(int buyerId)
         {
             var cartItems = (List<Cart>)_cartRepository.Get(buyerId);
+            var totalCount = _cartRepository.GetCount(buyerId);
+            var cartOverview = new CartSummaryHolderViewModel();
             var carts = new List<CartSummaryViewModel>();
             carts.AddRange(cartItems.Select(x => new CartSummaryViewModel()
             {
@@ -62,7 +64,9 @@ namespace MarketPlace.Services.Orders
                 Price= x.Advertisement.Price
 
             }));
-            return carts;
+            cartOverview.OverViewItems = carts;
+            cartOverview.Total = totalCount;
+            return cartOverview;
         }
     }
 }

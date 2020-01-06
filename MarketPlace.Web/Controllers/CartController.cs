@@ -34,11 +34,11 @@ namespace iMarketPlace.Web.Controllers
         public ActionResult Summary()
         {
             var user = GetSession<UserSessionInfo>(USER_SESSION);
-            var cartItems = new List<CartSummaryViewModel>();
+            var cartOverview = new CartSummaryHolderViewModel();
             if (user != null)
-                cartItems = _cartService.GetUserCartItems(user.Id);
-            var view = ConvertViewToString("_CartItem", cartItems);
-            return Json(new { view, cartItems.Count }, JsonRequestBehavior.AllowGet);
+                cartOverview = _cartService.GetUserCartItems(user.Id);
+            var view = ConvertViewToString("_CartItem", cartOverview.OverViewItems);
+            return Json(new { view, cartOverview.Total }, JsonRequestBehavior.AllowGet);
         }
     }
 }
