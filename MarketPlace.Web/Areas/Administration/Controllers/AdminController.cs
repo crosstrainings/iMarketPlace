@@ -51,18 +51,7 @@ namespace iMarketPlace.Web.Areas.Administration.Controllers
             return PartialView("_AllAdverts", advertisements);
         }
 
-        public ActionResult ListOfCategory()
-        {
-            var category= _advertisementService.GetAllCategories();
-
-            return PartialView("_Categories",category);
-        }
-        public ActionResult ListOfSubCategory()
-        {
-            var subCategory = _advertisementService.GetAllSubCategories();
-
-            return View(subCategory);
-        }
+      
 
         public ActionResult AdertisementDetails(int id)
         {

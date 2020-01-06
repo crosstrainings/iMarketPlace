@@ -1,0 +1,43 @@
+﻿@model MarketPlace.Entities.Common.City
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<div class="container">
+
+    @using (Html.BeginForm("Add", "City", FormMethod.Post, new { @class = "form-horizontal form-heading ", enctype = "multipart/form-data" })) *@
+{
+
+    <div class="col-md-offset-3 col-md-6" style="background-color:#e2e1e1">
+        <h4>Add City</h4>
+
+        <div class="form-group">
+            <div class="input-group-text">
+                <input type="text" placeholder="Enter Category" class="form-control" name="name" />
+                @* @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Your Email" } })*@
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="input-group-text">
+                <input type="text" placeholder="Enter City Code" class="form-control" name="name" />
+                @* @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Your Email" } })*@
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="input-group-btn">
+                <input type="submit" value="Add" class="btn btn-success">
+            </div>
+        </div>
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+            <br />
+            <br />
+
+        </div>
+    </div>
+    }
+</div>
+

@@ -9,5 +9,10 @@ namespace iMarketPlace.Web.Areas.Administration.Controllers
         {
             return PartialView("_Cities");
         }
+
+        public ActionResult Add()
+        {
+            return View();
+        }
     }
 }

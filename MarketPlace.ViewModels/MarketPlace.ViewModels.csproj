@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\AdvertisementViewModel.cs" />
+    <Compile Include="Admin\Category\AddCategoryViewModel.cs" />
+    <Compile Include="Admin\Advertisement\AdvertisementViewModel.cs" />
+    <Compile Include="Admin\SubCategory\SubCategoryViewModel.cs" />
     <Compile Include="CityViewModel.cs" />
     <Compile Include="CountryViewModel.cs" />
     <Compile Include="LoginViewModel.cs" />
@@ -50,6 +52,12 @@
     <Compile Include="Orders\CartSummaryViewModel.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MarketPlace.Entities\MarketPlace.Entities.csproj">
+      <Project>{933F94AC-DBDD-47A3-9645-A130194134C3}</Project>
+      <Name>MarketPlace.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

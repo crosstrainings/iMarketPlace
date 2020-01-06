@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<MarketPlace.ViewModels.CityViewModel>
 @Html.Partial("_DataTableStyles")
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New", "Add", "Admin")
+
 </p>
 <table class="table table-bordered table-hover" id="dt">
     <thead class="bg-primary">
@@ -19,7 +20,10 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @if (Model!=null)
+        {
+
+        foreach (var item in Model)
         {
             <tr>
                 <td>
@@ -37,6 +41,8 @@
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                 </td>
             </tr>
+        }
+
         }
     </tbody>
 </table>
