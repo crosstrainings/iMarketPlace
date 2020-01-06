@@ -582,7 +582,7 @@
     <Content Include="Content\styles\registration-form.css" />
     <Content Include="Content\styles\themes\flat.css" />
     <Content Include="Content\styles\themes\gradient.css" />
-    <Content Include="Content\styles\user-profile.css" />
+    <Content Include="Content\styles\userProfile.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
