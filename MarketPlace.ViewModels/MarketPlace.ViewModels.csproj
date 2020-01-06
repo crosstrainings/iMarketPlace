@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="Admin\Category\AddCategoryViewModel.cs" />
     <Compile Include="Admin\Advertisement\AdvertisementViewModel.cs" />
-    <Compile Include="Admin\Category\Class1.cs" />
     <Compile Include="Admin\SubCategory\SubCategoryViewModel.cs" />
     <Compile Include="CityViewModel.cs" />
     <Compile Include="CountryViewModel.cs" />
