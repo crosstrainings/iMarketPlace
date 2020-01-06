@@ -189,6 +189,7 @@
     <Compile Include="Areas\Administration\Controllers\CityController.cs" />
     <Compile Include="Areas\Administration\Controllers\CountryController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
@@ -533,6 +534,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\images\1.png" />
+    <Content Include="Content\images\Animations\admin-action-loading.gif" />
     <Content Include="Content\images\banners\%284%29.jpg" />
     <Content Include="Content\images\banners\%285%29.jpg" />
     <Content Include="Content\images\banners\%286%29.jpg" />
@@ -543,6 +545,8 @@
     <Content Include="Content\images\banners\paymentMethod.png" />
     <Content Include="Content\images\Others\BrandPlaceholder.png" />
     <Content Include="Content\images\Others\categories.PNG" />
+    <Content Include="Content\images\Others\categories.gif" />
+    <Content Include="Content\images\Others\category-rows.PNG" />
     <Content Include="Content\images\Others\SaleImage.jpg" />
     <Content Include="Content\images\products\%281%29.jpg" />
     <Content Include="Content\images\products\%2810%29.jpg" />
@@ -594,6 +598,7 @@
     <Content Include="Scripts\app-remove-product.js" />
     <Content Include="Scripts\app-theme.js" />
     <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\Cart\add-to-cart.js" />
     <Content Include="Scripts\DataTableCustome.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -972,6 +977,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Product\Detail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cart\_CartSummary.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cart\_CartItem.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -4,11 +4,25 @@
     <link href="~/content/styles/bootstrap.css" rel="stylesheet">
     <link href="~/content/styles/registration-form.css" rel="stylesheet" />
     <link href="~/content/styles/footer.css" rel="stylesheet" />
+    <style>
+        .cart-item-icon {
+            color: #d9534f;
+        }
+
+        .cart-item-count-area {
+            font-size: 10px;
+            font-weight: bolder;
+            font-family: cursive;
+            color: white;
+            background: #d9534f;
+
+        }
+    </style>
 </head>
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="navbar navbar-default">
+            <div class="navbar navbar-default navbar-fixed-top">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <button class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
@@ -52,9 +66,16 @@
                                     <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
                                 </li>
                                 <li>
-                                    <a href="#" data-toggle="modal" data-target="#register-modal">Register</a>
+                                    <a href="#" data-toggle="modal" data-target="#register-modal">Join</a>
                                 </li>
                             }
+                            <li>
+                                <a href="#" class="dropdown-toggle cart-summary-toggle-btn" data-summary-view="0" data-toggle="dropdown">
+                                    <i class="glyphicon glyphicon-shopping-cart cart-item-icon"></i>
+                                    <span class="badge cart-item-count-area">0</span>
+                                </a>
+                                @Html.Partial("~/Views/Cart/_CartSummary.cshtml")
+                            </li>
 
                             <li class="dropdown">
                                 <a href="#" data-toggle="dropdown">
@@ -72,6 +93,8 @@
             </div>
         </div>
         <!-- /.nav-area -->
+        <br /><br />
+        <br /><br />
         @RenderBody()
     </div><!-- /.container-fluid -->
 

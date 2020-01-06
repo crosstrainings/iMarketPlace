@@ -56,6 +56,8 @@
     <Compile Include="Advertisements\Advertisement.cs" />
     <Compile Include="Common\Badge.cs" />
     <Compile Include="Common\Image.cs" />
+    <Compile Include="Orders\Cart.cs" />
+    <Compile Include="Orders\CartDetail.cs" />
     <Compile Include="Orders\Order.cs" />
     <Compile Include="Orders\OrderStatus.cs" />
     <Compile Include="Common\Review.cs" />

@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LocationService.cs" />
+    <Compile Include="Orders\CartService.cs" />
     <Compile Include="UserService.cs" />
     <Compile Include="SellerService.cs" />
     <Compile Include="BuyerService.cs" />
