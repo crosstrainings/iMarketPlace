@@ -1,15 +1,15 @@
 name: MarketPlace Build Work Flow
-
-on: [push]
-
+on: push
 jobs:
   build:
-
+    name: MSBuild
     runs-on: windows-latest
-    
     steps:
+    - uses: actions/checkout@v1
+
     - name: Setup MSBuild.exe
       uses: warrenbuckley/Setup-MSBuild@v1
+
     - name: MSBuild
-      working-directory: src
-      run: msbuild ../../iMarketPlace.sln
+      run: msbuild iMarketPlace.sln
+      shell: cmd
