@@ -7,6 +7,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
+    - name: Restore Packages
+      uses: nuget restore iMarketPlace.sln
+      
     - name: Setup MSBuild.exe
       uses: warrenbuckley/Setup-MSBuild@v1
 
