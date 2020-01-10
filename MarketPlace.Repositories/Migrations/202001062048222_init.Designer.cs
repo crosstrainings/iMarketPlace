@@ -7,13 +7,13 @@ namespace MarketPlace.Repositories.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class cartadded : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(cartadded));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201912312101544_cart-added"; }
+            get { return "202001062048222_init"; }
         }
         
         string IMigrationMetadata.Source

@@ -53,13 +53,9 @@
   <ItemGroup>
     <Compile Include="CategoryRepository.cs" />
     <Compile Include="LocationRespository.cs" />
-    <Compile Include="Migrations\201912291758203_init.cs" />
-    <Compile Include="Migrations\201912291758203_init.Designer.cs">
-      <DependentUpon>201912291758203_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912312101544_cart-added.cs" />
-    <Compile Include="Migrations\201912312101544_cart-added.Designer.cs">
-      <DependentUpon>201912312101544_cart-added.cs</DependentUpon>
+    <Compile Include="Migrations\202001062048222_init.cs" />
+    <Compile Include="Migrations\202001062048222_init.Designer.cs">
+      <DependentUpon>202001062048222_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Orders\CartRepository.cs" />
@@ -82,11 +78,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201912291758203_init.resx">
-      <DependentUpon>201912291758203_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912312101544_cart-added.resx">
-      <DependentUpon>201912312101544_cart-added.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001062048222_init.resx">
+      <DependentUpon>202001062048222_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

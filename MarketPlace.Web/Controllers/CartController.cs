@@ -40,5 +40,11 @@ namespace iMarketPlace.Web.Controllers
             var view = ConvertViewToString("_CartItem", cartOverview.OverViewItems);
             return Json(new { view, cartOverview.Total }, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet]
+        public ActionResult Checkout()
+        {
+            return View();
+        }
     }
 }
