@@ -1,12 +1,15 @@
 ﻿<style>
     ul.dropdown-cart {
         min-width: 250px;
+        background: white;
+        border-top: 0;
     }
 
         ul.dropdown-cart li .item {
             display: block;
             padding: 3px 10px;
             margin: 3px 0;
+            border-bottom: 1px dotted #c5c3c3;
         }
 
             ul.dropdown-cart li .item:hover {
@@ -33,6 +36,9 @@
 
             ul.dropdown-cart li .item-left span.item-info {
                 margin-left: 10px;
+                font-size: 11px;
+                color: #616060;
+                margin-top: 5px;
             }
 
                 ul.dropdown-cart li .item-left span.item-info span {
@@ -41,11 +47,19 @@
 
         ul.dropdown-cart li .item-right {
             float: right;
-        }
+         }
 
             ul.dropdown-cart li .item-right button {
-                margin-top: 14px;
+                margin-top: 5px;
             }
+
+   .view-cart-btn {
+        display: block;
+        clear: both;
+        font-weight: bold;
+        color: #d9534f;
+        font-size: 10px;
+    }
 </style>
 <ul class="dropdown-menu dropdown-cart user-cart-summary-area" role="menu">
  
