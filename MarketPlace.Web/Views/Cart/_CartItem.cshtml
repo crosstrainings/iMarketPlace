@@ -8,11 +8,11 @@
         <li>
             <span class="item">
                 <span class="item-left">
-                    <img src="@Url.Content(item.Thumbnail)" height="50" width="50" />
+                    <img src="@Url.Content(item.Thumbnail)" class="img-circle" height="40" width="40" />
                     <span class="item-info">
-                        @if (item.Title.Length > 10)
+                        @if (item.Title.Length > 25)
                         {
-                            <span>@item.Title.Substring(0, 10)</span>
+                            <span>@item.Title.Substring(0, 25)</span>
                         }
                         else
                         {
@@ -22,7 +22,7 @@
                     </span>
                 </span>
                 <span class="item-right">
-                    <button class="btn btn-xs btn-danger pull-right">x</button>
+                    <span class="button text-danger pull-right">x</span>
                 </span>
             </span>
         </li>

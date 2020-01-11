@@ -32,7 +32,7 @@ function loadUserCartSummary() {
     var url = "Cart/Summary";
     asyncAction(url, "get", (summary) => {
         var area = ".user-cart-summary-area";
-        var areaFooter = `<li class="divider"></li><li><a class="text-center" href="/Cart/Checkout">View Cart</a></li>`;
+        var areaFooter = `<li><a class="view-cart-btn text-center" href="/Cart/Checkout">view cart</a></li>`;
         var result = summary.view + areaFooter;
         $(cartItemsCountArea).html(summary.Total);
         $(area).html(result);
