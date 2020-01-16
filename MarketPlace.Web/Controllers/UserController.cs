@@ -87,5 +87,12 @@ namespace iMarketPlace.Web.Controllers
             RemoveSession();
             return RedirectToAction("Index", "Home");
         }
+        public ActionResult Settings()
+        {
+
+            return View("Settings");
+        }
+
+
     }
 }
