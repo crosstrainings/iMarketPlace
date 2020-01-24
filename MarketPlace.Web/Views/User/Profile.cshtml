@@ -9,6 +9,7 @@
 </head>
 <body>
 
+
     <div class="container-fluid">
         <div class="view-account">
             <section class="module">
@@ -28,7 +29,7 @@
                         <nav class="side-menu">
                             <ul class="nav">
                                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-cog" ></span> Settings</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
                                 <li class="active"><a href="#"><span class="glyphicon glyphicon-credit-card"></span> Orders</a></li>
                                 <li><a href="#"><span class="glyphicon glyphicon-heart"></span> Favuraite</a></li>
 
@@ -44,18 +45,13 @@
                             </div>
                         </div>
                         <div class="content-utilities">
-                            
+
                             <div class="actions">
-                                
+
                             </div>
                         </div>
                         <div class="drive-wrapper drive-grid-view">
                             <div class="grid-items-wrapper">
-                                
-                        
-
-                            
-               
                                 <div class="drive-item module text-center">
                                     <div class="drive-item-inner module-inner">
                                         <div class="drive-item-title"><a href="#">Image DS2314.JPG</a></div>
@@ -73,14 +69,12 @@
                             </div>
                         </div>
 
-                       
+
                     </div>
                 </div>
             </section>
         </div>
     </div>
-
-
 
 
 
@@ -165,9 +159,9 @@
     <script src="/signalR/js"></script>
     <script>
 
-        $(function(){
+        $(function () {
             $("[data-toggle='tooltip']").tooltip();
-                    })
+        })
 
         //Create Hub
         var adminHub = $.connection.adminHub;
@@ -178,10 +172,10 @@
             adminHub.server.userLogedIn(userName);
         });
 
-            //Reciving Client Function
-            //myHub.client.SayWelcome = function (dateTime) {
-            //    alert("Wellcome User at"+dateTime)
-            //};
+                //Reciving Client Function
+                //myHub.client.SayWelcome = function (dateTime) {
+                //    alert("Wellcome User at"+dateTime)
+                //};
 
 
     </script>
